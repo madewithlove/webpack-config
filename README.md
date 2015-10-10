@@ -8,12 +8,6 @@ Install the package
 $ npm install madewithlove-webpack-config --save-dev
 ```
 
-Then any necessary loaders:
-
-```bash
-$ npm install css-loader babel-loader --save-dev
-```
-
 ## Usage
 
 ### Basic usage
