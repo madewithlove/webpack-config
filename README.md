@@ -32,6 +32,7 @@ module.exports = require('madewithlove-webpack-config')({
     sourcePath: 'src',
     outputPath: 'builds',
 });
+```
 
 ### Advanced usage
 
