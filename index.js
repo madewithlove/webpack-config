@@ -6,22 +6,27 @@ var StatsPlugin  = require('stats-webpack-plugin');
 var ExtractText  = require('extract-text-webpack-plugin');
 var merge        = require('merge');
 var path         = require('path');
+var fs           = require('fs');
 var loaders      = require('./src/loaders');
 
 module.exports = function (options) {
 
     // Require dotenv variables
-    require('dotenv').load({
-        path: process.cwd() + '/.env',
+    var dotenv = process.cwd() + '/.env';
+    fs.stat(dotenv, function (errors) {
+        if (!errors) {
+            require('dotenv').load({path: dotenv});
+        }
     });
 
     // Define some reusable options
-    var development = process.env.APP_DEBUG === 'true';
+    var env         = process.env.APP_ENV || process.env.NODE_ENV;
+    var development = env !== 'production';
     var options     = merge({
 
         // Environment
         development: development,
-        env:         process.env.APP_ENV,
+        env:         env,
         hot:         process.argv.indexOf('--inline') !== -1,
         domain:      process.env.APP_URL,
 

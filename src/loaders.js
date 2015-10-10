@@ -22,7 +22,7 @@ module.exports = function (options) {
             test:    /\.js$/,
             loader:  'babel',
             include: path.join(process.cwd(), options.sourcePath),
-            query:   options.react || !options.hot ? babelrc : merge(babelrc, {env: {}}),
+            query:   options.react && options.hot ? babelrc : merge(babelrc, {env: {}}),
         },
         {
             test:   /\.json/,
