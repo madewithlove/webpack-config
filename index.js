@@ -22,7 +22,7 @@ module.exports = function (options) {
         hot:         process.argv.indexOf('--inline') !== -1,
 
         // Filenames and paths
-        filenames:  '[name]',
+        filenames:  '[name]-[hash]',
         devServer:  'http://localhost:8080',
         sourcePath: 'resources/assets/js',
         outputPath: 'public/builds/',
