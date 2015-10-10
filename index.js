@@ -13,15 +13,16 @@ module.exports = function (options) {
         path: process.cwd() + '/.env',
     });
 
+    var development = process.env.APP_DEBUG === 'true';
     var options = merge({
 
         // Environment
-        development: process.env.APP_DEBUG === 'true',
+        development: development,
         env:         process.env.APP_ENV,
         hot:         process.argv.indexOf('--inline') !== -1,
 
         // Filenames and paths
-        filenames:  '[name]-[hash]',
+        filenames:  development ? 'bundle' : '[name]-[hash]',
         devServer:  'http://localhost:8080',
         sourcePath: 'resources/assets/js',
         outputPath: 'public/builds/',
@@ -51,9 +52,15 @@ module.exports = function (options) {
             chunkFilename: options.filenames.replace('hash', 'chunkhash') + '.js',
         },
 
+        resolveLoaders: {
+            root: [
+                path.join(process.cwd(), 'node_modules'),
+                path.join(__dirname, 'node_modules'),
+            ],
+        },
+
         plugins: [
             new CleanPlugin(options.outputPath),
-            new ExtractText(options.filenames + '.css', {allChunks: true}),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             new webpack.optimize.CommonsChunkPlugin({
                 name:     'main',
@@ -88,14 +95,6 @@ module.exports = function (options) {
             ],
             loaders:    [
                 {
-                    test:   /\.css$/,
-                    loader: ExtractText.extract('style', 'css!autoprefixer'),
-                },
-                {
-                    test:   /\.scss$/,
-                    loader: ExtractText.extract('style', 'css!autoprefixer!sass'),
-                },
-                {
                     test:   /\.woff/,
                     loader: 'url',
                     query:  {
@@ -116,9 +115,9 @@ module.exports = function (options) {
                     loader:  'babel',
                     include: path.join(process.cwd(), options.sourcePath),
                     query:   {
-                        stage:          0,
-                        cacheDirectory: true,
-                        optional:       ['runtime'],
+                        stage:    0,
+                        //cacheDirectory: true,
+                        optional: ['runtime'],
                     },
                 },
                 {
@@ -164,11 +163,12 @@ module.exports = function (options) {
             debug:   false,
             devtool: false,
             plugins: [
+                new ExtractText(options.filenames + '.css', {allChunks: true}),
                 new webpack.optimize.DedupePlugin(),
-                new webpack.optimize.OccurenceOrderPlugin(),
-                new webpack.optimize.MinChunkSizePlugin({
-                    minChunkSize: options.inlineLimit,
-                }),
+                new webpack.optimize.OccurenceOrderPlugin(true),
+                //new webpack.optimize.MinChunkSizePlugin({
+                //    minChunkSize: options.inlineLimit,
+                //}),
                 new webpack.optimize.UglifyJsPlugin({
                     mangle:   true,
                     compress: {
@@ -176,6 +176,18 @@ module.exports = function (options) {
                     },
                 }),
             ],
+            module: {
+                loaders: [
+                    {
+                        test:   /\.css$/,
+                        loader: ExtractText.extract('style', 'css!autoprefixer'),
+                    },
+                    {
+                        test:   /\.scss$/,
+                        loader: ExtractText.extract('style', 'css!autoprefixer!sass'),
+                    },
+                ]
+            }
         });
     }
 
