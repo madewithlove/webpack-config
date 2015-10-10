@@ -21,6 +21,7 @@
     "dotenv": "^1.2.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "merge": "^1.2.0",
+    "stats-webpack-plugin": "^0.2.2",
     "webpack-config": "^0.8.0"
   },
   "peerDependencies": {

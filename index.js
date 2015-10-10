@@ -1,7 +1,8 @@
 var webpack      = require('webpack');
+var Config       = require('webpack-config');
 var AssetsPlugin = require('assets-webpack-plugin');
 var CleanPlugin  = require('clean-webpack-plugin');
-var Config       = require('webpack-config');
+var StatsPlugin  = require('stats-webpack-plugin');
 var ExtractText  = require('extract-text-webpack-plugin');
 var merge        = require('merge');
 var path         = require('path');
@@ -43,6 +44,7 @@ module.exports = function (options) {
     var config = Config.fromObject({
         debug:   true,
         devtool: 'eval',
+        cache:   true,
 
         entry:  [
             './' + options.sourcePath,
@@ -101,6 +103,20 @@ module.exports = function (options) {
     });
 
     //////////////////////////////////////////////////////////////////////
+    /////////////////////////////// LOCAL ////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+
+    if (options.development) {
+        config = config.merge({
+            plugins: [
+                new StatsPlugin('stats.json', {
+                    chunkModules: true,
+                })
+            ]
+        });
+    }
+
+    //////////////////////////////////////////////////////////////////////
     //////////////////////////////// HMR /////////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
@@ -133,7 +149,7 @@ module.exports = function (options) {
         config = config.merge({
             debug:   false,
             devtool: false,
-            output: {
+            output:  {
                 pathinfo: false,
             },
             plugins: [
@@ -152,7 +168,6 @@ module.exports = function (options) {
             ],
         });
     }
-
 
     return config;
 };
