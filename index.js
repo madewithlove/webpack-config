@@ -5,6 +5,7 @@ var Config       = require('webpack-config');
 var ExtractText  = require('extract-text-webpack-plugin');
 var merge        = require('merge');
 var path         = require('path');
+var loaders      = require('./src/loaders');
 
 module.exports = function (options) {
 
@@ -14,7 +15,7 @@ module.exports = function (options) {
     });
 
     var development = process.env.APP_DEBUG === 'true';
-    var options = merge({
+    var options     = merge({
 
         // Environment
         development: development,
@@ -22,24 +23,25 @@ module.exports = function (options) {
         hot:         process.argv.indexOf('--inline') !== -1,
 
         // Filenames and paths
-        filenames:  development ? 'bundle' : '[name]-[hash]',
+        filenames:  development ? '[name]' : '[name]-[hash]',
         devServer:  'http://localhost:8080',
         sourcePath: 'resources/assets/js',
         outputPath: 'public/builds/',
 
         // Other options
+        react:       true,
         inlineLimit: 50000,
+        cssLoaders:  development ? 'css' : 'css!autoprefixer',
 
     }, options);
 
     //////////////////////////////////////////////////////////////////////
-    /////////////////////////////// LOCAL ////////////////////////////////
+    ////////////////////////////// DEFAULTS //////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
     var config = Config.fromObject({
         debug:   true,
         devtool: 'eval',
-        hot:     false,
 
         entry:  [
             './' + options.sourcePath,
@@ -60,6 +62,7 @@ module.exports = function (options) {
         },
 
         plugins: [
+            new ExtractText(options.filenames + '.css', {allChunks: true}),
             new CleanPlugin(options.outputPath),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             new webpack.optimize.CommonsChunkPlugin({
@@ -93,38 +96,7 @@ module.exports = function (options) {
                     loader: 'baggage?[file].html=template&[file].scss'
                 }
             ],
-            loaders:    [
-                {
-                    test:   /\.woff/,
-                    loader: 'url',
-                    query:  {
-                        limit:    options.inlineLimit,
-                        mimetype: 'application/font-woff',
-                    },
-                },
-                {
-                    test:   /\.(ttf|eot)$/,
-                    loader: 'url',
-                },
-                {
-                    test:    /\.(png|gif|jpe?g|svg)$/,
-                    loaders: ['url?limit=' + options.inlineLimit, 'image-webpack?bypassOnDebug'],
-                },
-                {
-                    test:    /\.js$/,
-                    loader:  'babel',
-                    include: path.join(process.cwd(), options.sourcePath),
-                    query:   {
-                        stage:    0,
-                        //cacheDirectory: true,
-                        optional: ['runtime'],
-                    },
-                },
-                {
-                    test:   /\.json$/,
-                    loader: 'json',
-                }
-            ],
+            loaders:    loaders(options),
         }
     });
 
@@ -134,7 +106,6 @@ module.exports = function (options) {
 
     if (options.hot) {
         config = config.extend({
-            hot:       true,
             output:    {
                 publicPath: options.devServer + '/' + options.outputPath,
             },
@@ -163,12 +134,11 @@ module.exports = function (options) {
             debug:   false,
             devtool: false,
             plugins: [
-                new ExtractText(options.filenames + '.css', {allChunks: true}),
                 new webpack.optimize.DedupePlugin(),
                 new webpack.optimize.OccurenceOrderPlugin(true),
-                //new webpack.optimize.MinChunkSizePlugin({
-                //    minChunkSize: options.inlineLimit,
-                //}),
+                new webpack.optimize.MinChunkSizePlugin({
+                    minChunkSize: options.inlineLimit,
+                }),
                 new webpack.optimize.UglifyJsPlugin({
                     mangle:   true,
                     compress: {
@@ -176,22 +146,10 @@ module.exports = function (options) {
                     },
                 }),
             ],
-            module: {
-                loaders: [
-                    {
-                        test:   /\.css$/,
-                        loader: ExtractText.extract('style', 'css!autoprefixer'),
-                    },
-                    {
-                        test:   /\.scss$/,
-                        loader: ExtractText.extract('style', 'css!autoprefixer!sass'),
-                    },
-                ]
-            }
         });
     }
 
-    console.log(options, config);
+    console.log(config, config.module.loaders);
 
     return config;
 };
