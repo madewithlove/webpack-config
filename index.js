@@ -1,11 +1,11 @@
 var webpack      = require('webpack');
-var ExtractText  = require('extract-text-webpack-plugin');
-var CleanPlugin  = require('clean-webpack-plugin');
 var AssetsPlugin = require('assets-webpack-plugin');
+var CleanPlugin  = require('clean-webpack-plugin');
 var Config       = require('webpack-config');
-var merge        = require('lodash/object/merge');
-var babelrc      = require('./babelrc');
+var ExtractText  = require('extract-text-webpack-plugin');
+var merge        = require('merge');
 var path         = require('path');
+var babelrc      = require('./babelrc');
 
 module.exports = function (options) {
 

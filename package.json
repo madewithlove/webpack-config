@@ -28,6 +28,7 @@
     "image-webpack-loader": "^1.6.1",
     "imagemin": "^3.2.0",
     "json-loader": "^0.5.3",
+    "merge": "^1.2.0",
     "node-sass": "^3.3.3",
     "sass-loader": "^3.0.0",
     "style-loader": "^0.12.4",
