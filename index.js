@@ -23,6 +23,7 @@ module.exports = function (options) {
         development: development,
         env:         process.env.APP_ENV,
         hot:         process.argv.indexOf('--inline') !== -1,
+        domain:      process.env.APP_URL,
 
         // Filenames and paths
         filenames:  development ? '[name]' : '[name].[hash]',
@@ -65,6 +66,7 @@ module.exports = function (options) {
         },
 
         plugins: [
+            new CleanPlugin(options.outputPath, process.cwd()),
             new ExtractText(options.filenames + '.css', {allChunks: true}),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             new webpack.optimize.CommonsChunkPlugin({
@@ -153,7 +155,6 @@ module.exports = function (options) {
                 pathinfo: false,
             },
             plugins: [
-                new CleanPlugin(options.outputPath, process.cwd()),
                 new webpack.optimize.DedupePlugin(),
                 new webpack.optimize.OccurenceOrderPlugin(true),
                 //new webpack.optimize.MinChunkSizePlugin({
