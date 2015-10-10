@@ -5,7 +5,6 @@ var Config       = require('webpack-config');
 var ExtractText  = require('extract-text-webpack-plugin');
 var merge        = require('merge');
 var path         = require('path');
-var babelrc      = require('./babelrc');
 
 module.exports = function (options) {
 
@@ -116,7 +115,11 @@ module.exports = function (options) {
                     test:    /\.js$/,
                     loader:  'babel',
                     include: path.join(process.cwd(), options.sourcePath),
-                    query:   babelrc,
+                    query:   {
+                        stage:          0,
+                        cacheDirectory: true,
+                        optional:       ['runtime'],
+                    },
                 },
                 {
                     test:   /\.json$/,
