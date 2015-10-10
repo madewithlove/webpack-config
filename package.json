@@ -40,5 +40,8 @@
     "url-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*"
+  },
+  "scripts": {
+    "postversion": "git push && git push --tags"
   }
 }
