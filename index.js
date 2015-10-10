@@ -14,6 +14,7 @@ module.exports = function (options) {
         path: process.cwd() + '/.env',
     });
 
+    // Define some reusable options
     var development = process.env.APP_DEBUG === 'true';
     var options     = merge({
 
@@ -23,7 +24,7 @@ module.exports = function (options) {
         hot:         process.argv.indexOf('--inline') !== -1,
 
         // Filenames and paths
-        filenames:  development ? '[name]' : '[name]-[hash]',
+        filenames:  development ? '[name]' : '[name].[hash]',
         devServer:  'http://localhost:8080',
         sourcePath: 'resources/assets/js',
         outputPath: 'public/builds/',
@@ -63,7 +64,6 @@ module.exports = function (options) {
 
         plugins: [
             new ExtractText(options.filenames + '.css', {allChunks: true}),
-            new CleanPlugin(options.outputPath),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             new webpack.optimize.CommonsChunkPlugin({
                 name:     'main',
@@ -133,12 +133,16 @@ module.exports = function (options) {
         config = config.merge({
             debug:   false,
             devtool: false,
+            output: {
+                pathinfo: false,
+            },
             plugins: [
+                new CleanPlugin(options.outputPath, process.cwd()),
                 new webpack.optimize.DedupePlugin(),
                 new webpack.optimize.OccurenceOrderPlugin(true),
-                new webpack.optimize.MinChunkSizePlugin({
-                    minChunkSize: options.inlineLimit,
-                }),
+                //new webpack.optimize.MinChunkSizePlugin({
+                //    minChunkSize: options.inlineLimit,
+                //}),
                 new webpack.optimize.UglifyJsPlugin({
                     mangle:   true,
                     compress: {
@@ -149,7 +153,6 @@ module.exports = function (options) {
         });
     }
 
-    console.log(config, config.module.loaders);
 
     return config;
 };
