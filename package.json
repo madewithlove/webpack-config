@@ -38,23 +38,10 @@
     "webpack-config": "^0.8.0"
   },
   "peerDependencies": {
-    "autoprefixer-loader": "*",
-    "babel-core": "*",
-    "babel-loader": "*",
-    "baggage-loader": "*",
-    "css-loader": "*",
-    "file-loader": "*",
-    "image-webpack-loader": "*",
-    "imagemin": "*",
-    "json-loader": "*",
-    "node-sass": "*",
-    "sass-loader": "*",
-    "style-loader": "*",
-    "url-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*"
   },
   "scripts": {
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags && npm publish"
   }
 }
