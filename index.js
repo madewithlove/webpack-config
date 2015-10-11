@@ -63,13 +63,6 @@ module.exports = function (options) {
             chunkFilename: options.filenames.replace('hash', 'chunkhash') + '.js',
         },
 
-        resolveLoaders: {
-            root: [
-                path.join(process.cwd(), 'node_modules'),
-                path.join(__dirname, 'node_modules'),
-            ],
-        },
-
         plugins: [
             new CleanPlugin(options.outputPath, process.cwd()),
             new ExtractText(options.filenames + '.css', {allChunks: true}),
