@@ -64,13 +64,8 @@ module.exports = function (options) {
         },
 
         plugins: [
-            new CleanPlugin(options.outputPath, process.cwd()),
             new ExtractText(options.filenames + '.css', {allChunks: true}),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
-            new webpack.optimize.CommonsChunkPlugin({
-                name:     'main',
-                children: true,
-            }),
             new AssetsPlugin({
                 path:        options.outputPath,
                 filename:    'manifest.json',
@@ -153,6 +148,11 @@ module.exports = function (options) {
                 pathinfo: false,
             },
             plugins: [
+                new CleanPlugin(options.outputPath, process.cwd()),
+                new webpack.optimize.CommonsChunkPlugin({
+                    name:     'main',
+                    children: true,
+                }),
                 new webpack.optimize.DedupePlugin(),
                 new webpack.optimize.OccurenceOrderPlugin(true),
                 //new webpack.optimize.MinChunkSizePlugin({
