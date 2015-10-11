@@ -89,8 +89,9 @@ module.exports = function (options) {
         module:  {
             preLoaders: [
                 {
-                    test:   /\.js$/,
-                    loader: 'baggage?[file].html=template&[file].scss'
+                    test:    /\.js$/,
+                    loader:  'baggage?[file].html=template&[file].scss',
+                    include: options.sourcePath,
                 }
             ],
             loaders:    loaders(options),
