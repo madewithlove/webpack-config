@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.5
+
+### Fixed
+- Fixed incorrect `include` directive for baggage-loader
+
 ## 1.0.4
 
 ### Fixed

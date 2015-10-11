@@ -91,7 +91,7 @@ module.exports = function (options) {
                 {
                     test:    /\.js$/,
                     loader:  'baggage?[file].html=template&[file].scss',
-                    include: options.sourcePath,
+                    include: path.join(process.cwd(), options.sourcePath),
                 }
             ],
             loaders:    loaders(options),
