@@ -42,11 +42,11 @@ module.exports = function (options) {
             },
         },
         {
-            test:   /\.(ttf|eot)$/,
+            test:   /\.(ttf|eot)/,
             loader: 'url',
         },
         {
-            test:    /\.(png|gif|jpe?g|svg)$/,
+            test:    /\.(png|gif|jpe?g|svg)/,
             loaders: ['url?limit=' + options.inlineLimit, 'image-webpack?bypassOnDebug'],
         },
 

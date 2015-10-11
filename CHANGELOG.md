@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.4
+
+### Fixed
+- Fixed fonts with query URLs (font-awesome, etc.) not being properly handled
+
 ## 1.0.3
 
 ### Changed
