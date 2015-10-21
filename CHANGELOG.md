@@ -1,4 +1,8 @@
 # CHANGELOG
+## 1.0.7
+### Fixed
+- Fixed file exists check. Again.
+
 ## 1.0.6
 ### Fixed
 - Fixed `.env` file exists check

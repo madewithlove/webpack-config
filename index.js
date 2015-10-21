@@ -13,10 +13,12 @@ module.exports = function (options) {
 
     // Require dotenv variables
     var dotenv = process.cwd() + '/.env';
-    var stats = fs.lstatSync(dotenv);
-    if (stats.isFile()) {
-        require('dotenv').load({path: dotenv});
-    }
+    fs.stat(dotenv, function (errors, stats) {
+        if (!errors && stats.isFile()) {
+            console.log(dotenv);
+            require('dotenv').load({path: dotenv});
+        }
+    });
 
     // Define some reusable options
     var env         = process.env.APP_ENV || process.env.NODE_ENV;
@@ -46,7 +48,7 @@ module.exports = function (options) {
     ////////////////////////////// DEFAULTS //////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
-    var config = Config.fromObject({
+    var config = new Config().merge({
         debug:   true,
         devtool: 'eval',
         cache:   true,
