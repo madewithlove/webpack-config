@@ -13,12 +13,13 @@ module.exports = function (options) {
 
     // Require dotenv variables
     var dotenv = process.cwd() + '/.env';
-    fs.stat(dotenv, function (errors, stats) {
-        if (!errors && stats.isFile()) {
-            console.log(dotenv);
+    try {
+        if(fs.statSync(dotenv).isFile()) {
             require('dotenv').load({path: dotenv});
         }
-    });
+    } catch (errors) {
+        // ...
+    }
 
     // Define some reusable options
     var env         = process.env.APP_ENV || process.env.NODE_ENV;
