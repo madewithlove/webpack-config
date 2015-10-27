@@ -119,7 +119,7 @@ module.exports = function (options) {
     //////////////////////////////////////////////////////////////////////
 
     if (options.hot) {
-        config = config.extend({
+        config = config.merge({
             output:    {
                 publicPath: options.devServer + '/' + options.outputPath,
             },
