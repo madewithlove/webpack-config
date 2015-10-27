@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.1.1
+### Fixed
+- Fixed hot module reloading
+
+## 1.1.0
+### Fixed
+- Fixed file exists check. Again.
+
 ## 1.0.7
 ### Fixed
 - Fixed file exists check. Again.
