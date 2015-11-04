@@ -1,4 +1,9 @@
 # CHANGELOG
+
+## 1.1.2
+### Fixed
+- Fixed custom loaders not being added.
+
 ## 1.1.1
 ### Fixed
 - Fixed hot module reloading

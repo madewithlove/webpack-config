@@ -1,6 +1,7 @@
 var ExtractText = require('extract-text-webpack-plugin');
 var path        = require('path');
 var merge       = require('merge');
+var objectPath  = require('object-path');
 var babelrc     = require('./babelrc');
 
 module.exports = function (options) {
@@ -50,5 +51,5 @@ module.exports = function (options) {
             loaders: ['url?limit=' + options.inlineLimit, 'image-webpack?bypassOnDebug'],
         },
 
-    ];
+    ].concat(objectPath.get(options, 'module.loaders', []));
 };
