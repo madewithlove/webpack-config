@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.0
+### Added
+- Added support for Typescript
+- Added support for Angular
+
 ## 1.1.2
 ### Fixed
 - Fixed custom loaders not being added.

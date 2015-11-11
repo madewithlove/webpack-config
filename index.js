@@ -14,7 +14,7 @@ module.exports = function (options) {
     // Require dotenv variables
     var dotenv = process.cwd() + '/.env';
     try {
-        if(fs.statSync(dotenv).isFile()) {
+        if (fs.statSync(dotenv).isFile()) {
             require('dotenv').load({path: dotenv});
         }
     } catch (errors) {
@@ -24,7 +24,7 @@ module.exports = function (options) {
     // Define some reusable options
     var env         = process.env.APP_ENV || process.env.NODE_ENV;
     var development = env !== 'production';
-    var options     = merge({
+    options         = merge({
 
         // Environment
         development: development,
@@ -38,12 +38,21 @@ module.exports = function (options) {
         sourcePath: 'resources/assets/js',
         outputPath: 'public/builds/',
 
+        // Frameworks
+        react:   true,
+        angular: false,
+
         // Other options
-        react:       true,
+        typescript:  false,
         inlineLimit: 50000,
         cssLoaders:  development ? 'css' : 'css!autoprefixer',
+        tsLoaders:   'awesome-typescript?module=commonjs',
 
     }, options);
+
+    if (options.typescript) {
+        options.sourcePath = options.sourcePath.replace('js', 'ts');
+    }
 
     //////////////////////////////////////////////////////////////////////
     ////////////////////////////// DEFAULTS //////////////////////////////
@@ -54,15 +63,18 @@ module.exports = function (options) {
         devtool: 'eval',
         cache:   true,
 
-        entry:  [
+        entry:   [
             './' + options.sourcePath,
         ],
-        output: {
+        output:  {
             pathinfo:      options.development,
             path:          options.outputPath,
             publicPath:    '/' + options.outputPath.replace('public/', ''),
             filename:      options.filenames + '.js',
             chunkFilename: options.filenames.replace('hash', 'chunkhash') + '.js',
+        },
+        resolve: {
+            extensions: ['', '.ts', '.js'],
         },
 
         plugins: [
@@ -91,7 +103,7 @@ module.exports = function (options) {
         module:  {
             preLoaders: [
                 {
-                    test:    /\.js$/,
+                    test:    /\.(js|ts)$/,
                     loader:  'baggage?[file].html=template&[file].scss',
                     include: path.join(process.cwd(), options.sourcePath),
                 }

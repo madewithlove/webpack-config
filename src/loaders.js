@@ -20,10 +20,18 @@ module.exports = function (options) {
             loader: ExtractText.extract('style', options.cssLoaders + '!sass'),
         },
         {
+            test:   /\.ts$/,
+            loader: options.angular ? 'ng-annotate!' + options.tsLoaders : options.tsLoaders,
+        },
+        {
             test:    /\.js$/,
             loader:  'babel',
             include: path.join(process.cwd(), options.sourcePath),
             query:   options.react && options.hot ? babelrc : merge(babelrc, {env: {}}),
+        },
+        {
+            test:   /\.html$/,
+            loader: options.angular ? 'ngtemplate!html' : 'html',
         },
         {
             test:   /\.json/,
