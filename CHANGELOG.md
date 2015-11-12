@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.2
+### Fixed
+- Missing babel configuration
+
 ## 1.2.1
 ### Fixed
 - Missing ng-annotate on JS files

@@ -5,6 +5,11 @@ var objectPath  = require('object-path');
 var babelrc     = require('./babelrc');
 
 module.exports = function (options) {
+
+    // Append Babel configuration
+    var babelConfiguration = options.react && options.hot ? babelrc : merge(babelrc, {env: {}});
+    options.loaders.js += '?' + JSON.stringify(babelConfiguration);
+
     return [
 
         //////////////////////////////////////////////////////////////////////
@@ -13,21 +18,20 @@ module.exports = function (options) {
 
         {
             test:   /\.css$/,
-            loader: ExtractText.extract('style', options.cssLoaders),
+            loader: ExtractText.extract('style', options.loaders.css),
         },
         {
             test:   /\.scss$/,
-            loader: ExtractText.extract('style', options.cssLoaders + '!sass'),
+            loader: ExtractText.extract('style', options.loaders.css + '!sass'),
         },
         {
             test:   /\.ts$/,
-            loader: options.angular ? 'ng-annotate!' + options.tsLoaders : options.tsLoaders,
+            loader: options.angular ? 'ng-annotate!' + options.loaders.ts : options.loaders.ts,
         },
         {
             test:    /\.js$/,
-            loader:  options.angular ? 'ng-annotate!babel' : 'babel',
+            loader:  options.angular ? 'ng-annotate!' + options.loaders.js : options.loaders.js,
             include: path.join(process.cwd(), options.sourcePath),
-            query:   options.react && options.hot ? babelrc : merge(babelrc, {env: {}}),
         },
         {
             test:   /\.html$/,

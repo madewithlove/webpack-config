@@ -45,8 +45,13 @@ module.exports = function (options) {
         // Other options
         typescript:  false,
         inlineLimit: 50000,
-        cssLoaders:  development ? 'css' : 'css!autoprefixer',
-        tsLoaders:   'awesome-typescript?module=commonjs',
+
+        // Loaders
+        loaders: {
+            js:  'babel',
+            css: development ? 'css' : 'css!autoprefixer',
+            ts:  'awesome-typescript?module=commonjs',
+        },
 
     }, options);
 
