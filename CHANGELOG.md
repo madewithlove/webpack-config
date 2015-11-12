@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.1
+### Fixed
+- Missing ng-annotate on JS files
+
 ## 1.2.0
 ### Added
 - Added support for Typescript
