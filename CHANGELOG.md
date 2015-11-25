@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.4
+### Changed
+- Reenable MinChunkSize plugin now that it works with ExtractText
+
 ## 1.2.3
 ### Changed
 - Updated vendor versions

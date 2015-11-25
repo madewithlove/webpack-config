@@ -175,9 +175,9 @@ module.exports = function (options) {
                 }),
                 new webpack.optimize.DedupePlugin(),
                 new webpack.optimize.OccurenceOrderPlugin(true),
-                //new webpack.optimize.MinChunkSizePlugin({
-                //    minChunkSize: options.inlineLimit,
-                //}),
+                new webpack.optimize.MinChunkSizePlugin({
+                    minChunkSize: options.inlineLimit,
+                }),
                 new webpack.optimize.UglifyJsPlugin({
                     mangle:   true,
                     compress: {
