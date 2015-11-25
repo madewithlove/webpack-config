@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.3
+### Changed
+- Updated vendor versions
+
 ## 1.2.2
 ### Fixed
 - Missing babel configuration
