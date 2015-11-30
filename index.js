@@ -24,7 +24,7 @@ module.exports = function (options) {
     // Define some reusable options
     var env         = process.env.APP_ENV || process.env.NODE_ENV;
     var development = env !== 'production';
-    options         = merge({
+    options         = merge.recursive({
 
         // Environment
         development: development,

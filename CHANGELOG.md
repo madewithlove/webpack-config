@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.5
+### Fixed
+- Fixed recursive merging of config options
+
 ## 1.2.4
 ### Changed
 - Reenable MinChunkSize plugin now that it works with ExtractText
