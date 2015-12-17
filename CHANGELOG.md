@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.6
+### Fixed
+- Disable removing of redundant attributes in minified HTML
+
 ## 1.2.5
 ### Fixed
 - Fixed recursive merging of config options
