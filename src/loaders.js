@@ -35,7 +35,7 @@ module.exports = function (options) {
         },
         {
             test:   /\.html$/,
-            loader: options.angular ? 'ngtemplate!html' : 'html',
+            loader: options.angular ? 'ngtemplate!html?removeRedundantAttributes=false' : 'html',
         },
         {
             test:   /\.json/,
