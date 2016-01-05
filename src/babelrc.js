@@ -1,27 +1,12 @@
 module.exports = {
-    stage:          0,
     cacheDirectory: true,
-    optional:       ['runtime'],
+    presets:        ['es2015', 'react', 'stage-0'],
+    plugins:        ['transform-decorators-legacy'],
     env:            {
-        development: {
-            plugins: ['react-transform'],
-            extra:   {
-                'react-transform': {
-                    transforms: [
-                        {
-                            transform: 'react-transform-hmr',
-                            imports:   ['react'],
-                            locals:    ['module']
-                        },
-                        {
-                            transform: 'react-transform-catch-errors',
-                            imports:   ['react', 'redbox-react']
-                        }
-                    ]
-                }
-            }
+        "development": {
+            "presets": ["react-hmre"]
         },
-        production:  {
+        production:    {
             ast:     false,
             compact: true
         }

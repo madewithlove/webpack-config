@@ -49,8 +49,8 @@ module.exports = function (options) {
         // Loaders
         loaders: {
             js:  'babel',
-            css: development ? 'css' : 'css!autoprefixer',
-            ts:  'awesome-typescript?module=commonjs',
+            css: development ? 'css-loader' : 'css-loader!autoprefixer-loader',
+            ts:  'awesome-typescript-loader?module=commonjs',
         },
 
     }, options);
