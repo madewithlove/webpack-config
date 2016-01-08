@@ -1,13 +1,13 @@
-var webpack      = require('webpack');
-var Config       = require('webpack-config');
+var webpack = require('webpack');
+var Config = require('webpack-config');
 var AssetsPlugin = require('assets-webpack-plugin');
-var CleanPlugin  = require('clean-webpack-plugin');
-var StatsPlugin  = require('stats-webpack-plugin');
-var ExtractText  = require('extract-text-webpack-plugin');
-var merge        = require('merge');
-var path         = require('path');
-var fs           = require('fs');
-var loaders      = require('./src/loaders');
+var CleanPlugin = require('clean-webpack-plugin');
+var StatsPlugin = require('stats-webpack-plugin');
+var ExtractText = require('extract-text-webpack-plugin');
+var merge = require('merge');
+var path = require('path');
+var fs = require('fs');
+var loaders = require('./src/loaders');
 
 module.exports = function (options) {
 
@@ -22,9 +22,9 @@ module.exports = function (options) {
     }
 
     // Define some reusable options
-    var env         = process.env.APP_ENV || process.env.NODE_ENV;
+    var env = process.env.APP_ENV || process.env.NODE_ENV;
     var development = env !== 'production';
-    options         = merge.recursive({
+    options = merge.recursive({
 
         // Environment
         development: development,
@@ -43,6 +43,7 @@ module.exports = function (options) {
         angular: false,
 
         // Other options
+        linting:     true,
         typescript:  false,
         inlineLimit: 50000,
 
@@ -109,13 +110,34 @@ module.exports = function (options) {
             preLoaders: [
                 {
                     test:    /\.(js|ts)$/,
-                    loader:  'baggage?[file].html=template&[file].scss',
+                    loader:  'baggage-loader?[file].html=template&[file].scss',
                     include: path.join(process.cwd(), options.sourcePath),
                 }
             ],
             loaders:    loaders(options),
         }
     });
+
+    //////////////////////////////////////////////////////////////////////
+    ////////////////////////////// LINTING ///////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+
+    if (options.linting && options.development) {
+        config = config.merge({
+            eslint: {
+                extends: "eslint-config-madewithlove",
+            },
+            module: {
+                preLoaders: [
+                    {
+                        test:    /\.js$/,
+                        loader:  "eslint-loader",
+                        exclude: /node_modules/,
+                    },
+                ]
+            }
+        });
+    }
 
     //////////////////////////////////////////////////////////////////////
     /////////////////////////////// LOCAL ////////////////////////////////
