@@ -8,6 +8,7 @@ var merge = require('merge');
 var path = require('path');
 var fs = require('fs');
 var loaders = require('./src/loaders');
+var autoprefixer = require('autoprefixer');
 
 module.exports = function (options) {
 
@@ -50,7 +51,7 @@ module.exports = function (options) {
         // Loaders
         loaders: {
             js:  'babel',
-            css: development ? 'css-loader' : 'css-loader!autoprefixer-loader',
+            css: development ? 'css-loader' : 'css-loader!postcss-loader',
             ts:  'awesome-typescript-loader?module=commonjs',
         },
 
@@ -115,7 +116,10 @@ module.exports = function (options) {
                 }
             ],
             loaders:    loaders(options),
-        }
+        },
+        postcss: function() {
+            return [autoprefixer];
+        },
     });
 
     //////////////////////////////////////////////////////////////////////
