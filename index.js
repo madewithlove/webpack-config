@@ -44,13 +44,13 @@ module.exports = function (options) {
         angular: false,
 
         // Other options
-        linting:     true,
+        linting:     false,
         typescript:  false,
         inlineLimit: 50000,
 
         // Loaders
         loaders: {
-            js:  'babel',
+            js:  'babel-loader',
             css: development ? 'css-loader' : 'css-loader!postcss-loader',
             ts:  'awesome-typescript-loader?module=commonjs',
         },

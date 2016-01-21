@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.0.0
+### Changed
+- Added support for Babel 6
+- Use `postcss-loader` and `autoprefixer` instead of now deprecated `autoprefixer-loader`
+- Added support for linting (experimental)
+
 ## 1.2.6
 ### Fixed
 - Disable removing of redundant attributes in minified HTML
