@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.1
+### Changed
+- Update ESLint configuration
+
 ## 2.0.0
 ### Changed
 - Added support for Babel 6
