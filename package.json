@@ -56,7 +56,12 @@
     "webpack": "*",
     "webpack-dev-server": "*"
   },
+  "devDependencies": {
+    "react": "^0.14.7",
+    "webpack": "^1.12.14"
+  },
   "scripts": {
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "git push && git push --tags && npm publish",
+    "test": "cd tests; webpack --bail; APP_ENV=production webpack --bail"
   }
 }
