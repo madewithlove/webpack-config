@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.1
+### Fixed
+- Fixed ES5 compatibility
+
 ## 3.0.0
 ### Added
 - Added packages configuration

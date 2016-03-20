@@ -1,2 +1,3 @@
-node_modules
-tests/acceptance/builds
+/dist
+/node_modules
+/tests/acceptance/builds
