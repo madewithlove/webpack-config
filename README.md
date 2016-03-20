@@ -45,3 +45,21 @@ module.exports = config.merge({
     ],
 });
 ```
+
+### Using templates
+
+**webpack.config.js**
+```js
+var factory = require('madewithlove-webpack-config').factory;
+var template = function (config, options, loaders, plugins) {
+    return config.merge({
+        devtool: options.development ? 'foo' : 'bar',
+        module: {
+            loaders: [loaders.css, loaders.js],
+        },
+        plugins: [plugins.uglify]
+    });
+};
+
+module.exports = factory(template);
+```
