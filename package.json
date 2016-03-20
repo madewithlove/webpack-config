@@ -64,9 +64,8 @@
     "webpack": "^1.12.14"
   },
   "scripts": {
-    "clean": "rm -rf dist",
     "build": "BABEL_ENV=production webpack --progress",
-    "prepublish": "npm run clean; npm run build",
+    "prepublish": "npm run build",
     "postversion": "git push; git push --tags; npm publish",
     "test:acceptance": "cd tests/acceptance; webpack --bail; APP_ENV=production webpack --bail",
     "test:unit": "mocha tests/unit --recursive --compilers js:babel-core/register",
