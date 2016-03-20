@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.0.0
+### Added
+- Added packages configuration
+- Added configuration factory
+- Added separate modules for each loader and plugin
+
 ## 2.0.1
 ### Changed
 - Update ESLint configuration
