@@ -24,7 +24,7 @@ describe('templates/applications', () => {
         expect(config.debug).toBe(false);
         expect(config.output.path).toEqual('foobar');
         expect(config.output.filename).toInclude('[hash]');
-        expect(config.plugins[0]).toBeA(CleanPlugin);
+        expect(config.plugins[1]).toBeA(CleanPlugin);
     });
 
     it('can enable HMR', () => {

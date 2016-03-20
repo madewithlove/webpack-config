@@ -5,7 +5,7 @@ export default function (options) {
         plugins: ['transform-decorators-legacy'],
         env: {
             development: {
-                presets: options.hot ? ["react-hmre"] : [],
+                presets: (options.react && options.hot) ? ["react-hmre"] : [],
             },
             production: {
                 ast: false,

@@ -13,7 +13,7 @@ describe('loaders/loaders/js', () => {
             }
         });
 
-        expect(config.loader).toBe('babel?{"cacheDirectory":true,"presets":["es2015","react","stage-0"],"plugins":["transform-decorators-legacy"],"env":{}}');
+        expect(config.loader).toInclude('react');
     });
 
     it('can enable HMR', () => {
@@ -26,7 +26,7 @@ describe('loaders/loaders/js', () => {
             }
         });
 
-        expect(config.loader).toBe('babel?{"cacheDirectory":true,"presets":["es2015","react","stage-0"],"plugins":["transform-decorators-legacy"],"env":{"development":{"presets":["react-hmre"]},"production":{"ast":false,"compact":true}}}');
+        expect(config.loader).toInclude('react-hmre');
     });
 
     it('can enable Angular', () => {
@@ -39,6 +39,6 @@ describe('loaders/loaders/js', () => {
             }
         });
 
-        expect(config.loader).toBe('ng-annotate!babel?{"cacheDirectory":true,"presets":["es2015","react","stage-0"],"plugins":["transform-decorators-legacy"],"env":{}}');
+        expect(config.loader).toInclude('ng-annotate');
     });
 });
