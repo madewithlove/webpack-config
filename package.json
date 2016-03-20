@@ -1,6 +1,6 @@
 {
   "name": "madewithlove-webpack-config",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Configuration for Webpack projects at Madewithlove",
   "main": "src/index.js",
   "repository": {
