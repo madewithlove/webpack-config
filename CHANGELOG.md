@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.2
+### Fixed
+- Fixed order of environment resolving
+
 ## 3.0.1
 ### Fixed
 - Fixed ES5 compatibility

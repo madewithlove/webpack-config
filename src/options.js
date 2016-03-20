@@ -1,7 +1,7 @@
 import merge from 'merge';
 
 export default function (options) {
-    const env = process.env.APP_ENV || process.env.BABEL_ENV || process.env.NODE_ENV;
+    const env = process.env.BABEL_ENV || process.env.NODE_ENV || process.env.APP_ENV;
     const development = typeof options.development === 'undefined'
         ? env !== 'production'
         : options.development;
