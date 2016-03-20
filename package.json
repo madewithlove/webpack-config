@@ -2,7 +2,7 @@
   "name": "madewithlove-webpack-config",
   "version": "3.0.2",
   "description": "Configuration for Webpack projects at Madewithlove",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/madewithlove/webpack-config.git"

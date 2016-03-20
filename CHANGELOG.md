@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.3
+### Fixed
+- Fixed main exported file
+
 ## 3.0.2
 ### Fixed
 - Fixed order of environment resolving
