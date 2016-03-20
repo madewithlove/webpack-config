@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.5
+### Fixed
+- Fixed environment getting overriden
+
 ## 3.0.4
 ### Fixed
 - Fixed missin dist/ folder in export

@@ -10,9 +10,14 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
-export default packages({
-    libraryName: 'WebpackConfig',
+const config = packages({
+    libraryName: 'WebpackConfig'
 }).merge({
     target: 'node',
     externals: nodeModules,
 });
+
+// Remove DefinePlugin since we use it internally
+config.plugins = config.plugins.slice(1);
+
+export default config;
