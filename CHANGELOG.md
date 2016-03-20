@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.8
+### Fixed
+- Disable `MinChunkSize` until `ExtractText` bug is fixed
+
 ## 3.0.5
 ### Fixed
 - Fixed environment getting overriden

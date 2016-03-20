@@ -104,9 +104,10 @@ export default function (config, options, loaders, plugins) {
                     name: 'main',
                     children: true,
                 }),
-                new webpack.optimize.MinChunkSizePlugin({
-                    minChunkSize: options.inlineLimit,
-                }),
+                // https://github.com/webpack/extract-text-webpack-plugin/issues/115
+                // new webpack.optimize.MinChunkSizePlugin({
+                //     minChunkSize: options.inlineLimit,
+                // }),
             ],
         });
     }
