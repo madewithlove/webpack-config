@@ -12,16 +12,20 @@ $ npm install madewithlove-webpack-config --save-dev
 
 ### Basic usage
 
-**webpack.config.js**
+**webpack.config.babel.js**
 ```js
-module.exports = require('madewithlove-webpack-config')();
+import config from 'madewithlove-webpack-config';
+
+export default config();
 ```
 
 You can also fine-tune aspects of the configuration:
 
-**webpack.config.js**
+**webpack.config.babel.js**
 ```js
-module.exports = require('madewithlove-webpack-config')({
+import config from 'madewithlove-webpack-config';
+
+export default config({
     react: true,
     sourcePath: 'src',
     outputPath: 'builds',
@@ -30,11 +34,11 @@ module.exports = require('madewithlove-webpack-config')({
 
 ### Advanced usage
 
-**webpack.config.js**
+**webpack.config.babel.js**
 ```js
-var config = require('madewithlove-webpack-config')();
+import config from 'madewithlove-webpack-config';
 
-module.exports = config.merge({
+export default config().merge({
     module: {
         loaders: [
             // Append a loader
@@ -48,18 +52,27 @@ module.exports = config.merge({
 
 ### Using templates
 
-**webpack.config.js**
+**webpack.config.babel.js**
 ```js
-var factory = require('madewithlove-webpack-config').factory;
-var template = function (config, options, loaders, plugins) {
+import {factory} from 'madewithlove-webpack-config';
+
+const template = (config, options, loaders, plugins) => {
     return config.merge({
         devtool: options.development ? 'foo' : 'bar',
         module: {
-            loaders: [loaders.css, loaders.js],
+            loaders: [
+                loaders.css,
+                loaders.js,
+                {
+                    test: options.someExtraOption,
+                }
+            ],
         },
         plugins: [plugins.uglify]
     });
 };
 
-module.exports = factory(template);
+export default factory(template, {
+    someExtraOption: 'foo',
+});
 ```
