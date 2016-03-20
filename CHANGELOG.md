@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.4
+### Fixed
+- Fixed missin dist/ folder in export
+
 ## 3.0.3
 ### Fixed
 - Fixed main exported file
