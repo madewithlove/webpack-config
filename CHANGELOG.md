@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.6
+### Added
+- Added [transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime) to Babel stack to avoid duplicate helpers in finale bundle
+
 ## 3.0.5
 ### Fixed
 - Fixed environment getting overriden
