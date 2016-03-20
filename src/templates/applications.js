@@ -18,7 +18,7 @@ export default function (config, options, loaders, plugins) {
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             plugins.assets,
             plugins.provide,
-            plugins.define,
+            plugins.occurenceOrder,
         ],
         module: {
             preLoaders: [
