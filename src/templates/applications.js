@@ -79,6 +79,7 @@ export default function (config, options, loaders, plugins) {
             },
             devServer: {
                 contentBase: options.domain,
+                historyApiFallback: true,
                 hot: true,
             },
             plugins: [

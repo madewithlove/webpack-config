@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.9
+### Added
+- Added `historyApiFallback` to `devServer` config for routing support in HMR mode
+
 ## 3.0.8
 ### Fixed
 - Disable `MinChunkSize` until `ExtractText` bug is fixed
