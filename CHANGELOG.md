@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 4.0.0
+### Added
+- Added `server` configuration template
+- Added ability to specify whether using HMR through `webpack-dev-server` or something else
+- Added `name` option to specify the name of the bundle
+
+### Changed
+- `config.entry` is now always an object (eg. `{main: 'src'}`) instead of an array like in 3.x (`['src']`)
+
+### Fixed
+- Fixed `process.env` being overriden by default
+
 ## 3.0.9
 ### Added
 - Added `historyApiFallback` to `devServer` config for routing support in HMR mode
