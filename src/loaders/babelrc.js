@@ -1,12 +1,14 @@
 export default function (options) {
+    let presets = options.react ? ['es2015', 'react', 'stage-0'] : ['es2015', 'stage-0'];
+    if (options.react && options.hot) {
+        presets.push('react-hmre');
+    }
+
     return {
         cacheDirectory: true,
-        presets: options.react ? ['es2015', 'react', 'stage-0'] : ['es2015', 'stage-0'],
+        presets,
         plugins: ['transform-decorators-legacy'],
         env: {
-            development: {
-                presets: (options.react && options.hot) ? ["react-hmre"] : [],
-            },
             production: {
                 ast: false,
                 compact: true
