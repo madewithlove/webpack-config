@@ -27,11 +27,7 @@ export default function (options, loaders, plugins) {
         },
     });
 
-    config = config.merge({
-        plugins: [
-            plugins.define,
-        ]
-    });
+    config.plugins.push(plugins.define);
 
     if (!options.development) {
         config = config.merge({

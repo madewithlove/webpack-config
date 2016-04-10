@@ -118,7 +118,7 @@ export default function (config, options, loaders, plugins) {
             plugins: [
                 new webpack.optimize.AggressiveMergingPlugin(),
                 new webpack.optimize.CommonsChunkPlugin({
-                    name: 'main',
+                    name: options.name,
                     children: true,
                 }),
                 // https://github.com/webpack/extract-text-webpack-plugin/issues/115
