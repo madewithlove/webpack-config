@@ -11,7 +11,7 @@ describe('templates/applications', () => {
             outputPath: 'foobar',
         });
 
-        expect(config.debug).toBe(true);
+        expect(config.debug).toEqual(true);
         expect(config.output.path).toEqual('foobar');
         expect(config.output.filename).toExclude('[hash]');
         expect(config.output.filename).toExclude('[hash]');
@@ -21,7 +21,7 @@ describe('templates/applications', () => {
             outputPath: 'foobar',
         });
 
-        expect(config.debug).toBe(false);
+        expect(config.debug).toEqual(false);
         expect(config.output.path).toEqual('foobar');
         expect(config.output.filename).toInclude('[hash]');
         expect(config.plugins[1]).toBeA(CleanPlugin);
@@ -32,7 +32,7 @@ describe('templates/applications', () => {
             hot: true,
         });
 
-        expect(config.devServer.hot).toBe(true);
+        expect(config.devServer.hot).toEqual(true);
     });
 
     it('can merge loaders and plugins', () => {
@@ -57,7 +57,7 @@ describe('templates/applications', () => {
             linting: true,
         });
 
-        expect(config.module.preLoaders[1].loader).toBe('eslint-loader');
-        expect(config.eslint.extends).toBe('eslint-config-madewithlove');
+        expect(config.module.preLoaders[1].loader).toEqual('eslint-loader');
+        expect(config.eslint.extends).toEqual('eslint-config-madewithlove');
     });
 });

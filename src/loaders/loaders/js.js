@@ -1,5 +1,3 @@
-import path from 'path';
-import merge from 'merge';
 import babelrc from '../babelrc';
 
 export default function (options) {
@@ -8,7 +6,7 @@ export default function (options) {
 
     return {
         test: /\.js$/,
-        loader: options.angular ? 'ng-annotate!' + options.loaders.js : options.loaders.js,
-        include: path.join(process.cwd(), options.sourcePath),
+        loader: options.angular ? `ng-annotate!${options.loaders.js}` : options.loaders.js,
+        include: options.sourcePath,
     };
 };

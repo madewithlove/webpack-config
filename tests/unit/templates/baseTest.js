@@ -9,6 +9,6 @@ describe('templates/base', () => {
             typescript: true,
         });
 
-        expect(config.entry[0]).toBe('./resources/assets/ts');
+        expect(config.entry.main).toEqual(['./resources/assets/ts']);
     });
 });

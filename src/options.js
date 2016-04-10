@@ -1,3 +1,4 @@
+import path from 'path';
 import merge from 'merge';
 
 export default function (options) {
@@ -9,10 +10,14 @@ export default function (options) {
     options = merge.recursive({
 
         // Environment
+        name: 'main',
         development: development,
         env: env,
-        hot: process.argv.indexOf('--inline') !== -1,
+
+        // HMR
         domain: process.env.APP_URL,
+        hot: options.devServer ? process.argv.indexOf('--inline') !== -1 : development,
+        devServer: true,
 
         // Filenames and paths
         filenames: development ? '[name]' : '[name].[hash]',
@@ -42,6 +47,10 @@ export default function (options) {
     if (options.typescript) {
         options.sourcePath = options.sourcePath.replace('js', 'ts');
     }
+
+    // Uniformize source path and entry point
+    options.entry = options.sourcePath;
+    options.sourcePath = path.resolve(path.dirname(options.sourcePath));
 
     return options;
 };

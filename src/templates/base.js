@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import path from 'path';
 import Config from 'webpack-config';
 import CleanPlugin from 'clean-webpack-plugin';
 import objectPath from 'object-path';
@@ -9,10 +10,12 @@ export default function (options, loaders, plugins) {
         devtool: 'eval',
         cache: true,
 
-        entry: ['./' + options.sourcePath],
+        entry: {
+            [options.name]: ['./' + options.entry],
+        },
         output: {
             pathinfo: options.development,
-            path: options.outputPath,
+            path: path.resolve(options.outputPath),
             filename: options.filenames + '.js',
         },
         resolve: {

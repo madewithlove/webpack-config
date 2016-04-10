@@ -7,12 +7,14 @@ import json from './loaders/json';
 import scss from './loaders/scss';
 import ts from './loaders/ts';
 import webfonts from './loaders/webfonts';
+import fontgen from './loaders/fontgen';
 import eslint from './preloaders/eslint';
 import baggage from './preloaders/baggage';
 
 export default function (options) {
     return {
         baggage: baggage(options),
+        fontgen: fontgen(options),
         css: css(options),
         eslint: eslint(options),
         fonts: fonts(options),

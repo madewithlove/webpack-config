@@ -27,12 +27,12 @@ export default function (config, options, loaders, plugins) {
             loaders: [
                 loaders.css,
                 loaders.scss,
-                loaders.ts,
                 loaders.js,
                 loaders.html,
+                loaders.fontgen,
                 loaders.json,
-                loaders.webfonts,
                 loaders.fonts,
+                loaders.webfonts,
                 loaders.images,
             ],
         },
@@ -40,6 +40,14 @@ export default function (config, options, loaders, plugins) {
             return [autoprefixer];
         },
     });
+
+    if (options.ts) {
+        config.merge({
+            module: {
+                loaders: [loaders.ts],
+            },
+        });
+    }
 
     //////////////////////////////////////////////////////////////////////
     ////////////////////////////// LINTING ///////////////////////////////
@@ -63,16 +71,14 @@ export default function (config, options, loaders, plugins) {
     //////////////////////////////////////////////////////////////////////
 
     if (options.development) {
-        config = config.merge({
-            plugins: [plugins.stats],
-        });
+        config.plugins.push(plugins.stats);
     }
 
     //////////////////////////////////////////////////////////////////////
     //////////////////////////////// HMR /////////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
-    if (options.hot) {
+    if (options.hot && options.devServer) {
         config = config.merge({
             output: {
                 publicPath: options.devServer + '/' + options.outputPath,
@@ -88,10 +94,19 @@ export default function (config, options, loaders, plugins) {
             ],
         });
 
-        config.entry = [
+        config.entry[options.name].unshift(
             'webpack-dev-server/client?' + options.devServer,
             'webpack/hot/only-dev-server',
-        ].concat(config.entry);
+        );
+    } else if (options.hot && !options.devServer) {
+        config.entry[options.name].push('webpack-hot-middleware/client?reload=true');
+
+        config = config.merge({
+            plugins: [
+                new webpack.HotModuleReplacementPlugin(),
+                new webpack.NoErrorsPlugin()
+            ],
+        });
     }
 
     //////////////////////////////////////////////////////////////////////
@@ -101,14 +116,15 @@ export default function (config, options, loaders, plugins) {
     if (!options.development) {
         config = config.merge({
             plugins: [
+                new webpack.optimize.AggressiveMergingPlugin(),
                 new webpack.optimize.CommonsChunkPlugin({
                     name: 'main',
                     children: true,
                 }),
                 // https://github.com/webpack/extract-text-webpack-plugin/issues/115
-                // new webpack.optimize.MinChunkSizePlugin({
-                //     minChunkSize: options.inlineLimit,
-                // }),
+                new webpack.optimize.MinChunkSizePlugin({
+                    minChunkSize: options.inlineLimit,
+                }),
             ],
         });
     }
