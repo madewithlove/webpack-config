@@ -15,7 +15,7 @@ export const factory = templateFactory;
 // Templates
 //////////////////////////////////////////////////////////////////////
 
-export const applications = applicationsConfigurator;
+export const application = applicationsConfigurator;
 
 export const server = options => templateFactory(serverTemplate, {
     ...options,
