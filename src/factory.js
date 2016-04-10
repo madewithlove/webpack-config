@@ -16,7 +16,7 @@ import baseConfiguration from './templates/base';
 export default function (configuration, options = {}) {
 
     // Require dotenv variables
-    const dotenvFile = process.cwd() + '/.env';
+    const dotenvFile = `${process.cwd()}/.env`;
     try {
         if (fs.statSync(dotenvFile).isFile()) {
             dotenv.load({path: dotenvFile});

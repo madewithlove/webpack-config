@@ -16,7 +16,7 @@ export default function (options, loaders, plugins) {
         output: {
             pathinfo: options.development,
             path: path.resolve(options.outputPath),
-            filename: options.filenames + '.js',
+            filename: `${options.filenames}.js`,
         },
         resolve: {
             extensions: ['', '.ts', '.js'],

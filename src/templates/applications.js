@@ -14,7 +14,7 @@ export default function (config, options, loaders, plugins) {
             chunkFilename: options.filenames.replace('hash', 'chunkhash') + '.js',
         },
         plugins: [
-            new ExtractText(options.filenames + '.css', {allChunks: true}),
+            new ExtractText(`${options.filenames}.css`, {allChunks: true}),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             plugins.assets,
             plugins.provide,
@@ -81,7 +81,7 @@ export default function (config, options, loaders, plugins) {
     if (options.hot && options.devServer) {
         config = config.merge({
             output: {
-                publicPath: options.devServer + '/' + options.outputPath,
+                publicPath: `${options.devServer}/${options.outputPath}`,
             },
             devServer: {
                 contentBase: options.domain,
