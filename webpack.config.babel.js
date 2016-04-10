@@ -1,20 +1,11 @@
 import {packages} from './src';
-import fs from 'fs';
-
-const nodeModules = {};
-fs.readdirSync('node_modules')
-    .filter(function (x) {
-        return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function (mod) {
-        nodeModules[mod] = 'commonjs ' + mod;
-    });
+import nodeExternals from 'webpack-node-externals';
 
 const config = packages({
     libraryName: 'WebpackConfig'
 }).merge({
     target: 'node',
-    externals: nodeModules,
+    externals: [nodeExternals()],
 });
 
 // Remove DefinePlugin since we use it internally

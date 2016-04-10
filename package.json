@@ -51,7 +51,8 @@
     "stats-webpack-plugin": "^0.3.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack-config": "^4.0.0"
+    "webpack-config": "^4.0.0",
+    "webpack-node-externals": "^1.0.0"
   },
   "peerDependencies": {
     "webpack": "*"
