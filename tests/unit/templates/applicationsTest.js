@@ -1,4 +1,5 @@
 import expect from 'expect';
+import path from 'path';
 import applications from '../../../src';
 import CleanPlugin from 'clean-webpack-plugin';
 
@@ -12,7 +13,7 @@ describe('templates/applications', () => {
         });
 
         expect(config.debug).toEqual(true);
-        expect(config.output.path).toEqual('foobar');
+        expect(config.output.path).toEqual(path.resolve('foobar'));
         expect(config.output.filename).toExclude('[hash]');
         expect(config.output.filename).toExclude('[hash]');
 
@@ -22,7 +23,7 @@ describe('templates/applications', () => {
         });
 
         expect(config.debug).toEqual(false);
-        expect(config.output.path).toEqual('foobar');
+        expect(config.output.path).toEqual(path.resolve('foobar'));
         expect(config.output.filename).toInclude('[hash]');
         expect(config.plugins[1]).toBeA(CleanPlugin);
     });

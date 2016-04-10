@@ -16,8 +16,7 @@ export default function (options) {
 
         // HMR
         domain: process.env.APP_URL,
-        hot: options.devServer ? process.argv.indexOf('--inline') !== -1 : development,
-        devServer: true,
+        hot: options.devServer === false ? development : process.argv.indexOf('--inline') !== -1,
 
         // Filenames and paths
         filenames: development ? '[name]' : '[name].[hash]',

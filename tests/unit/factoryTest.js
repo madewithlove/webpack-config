@@ -1,4 +1,5 @@
 import expect from 'expect';
+import path from 'path';
 import webpack from 'webpack';
 import {factory} from '../../src';
 
@@ -27,7 +28,7 @@ describe('factory', () => {
         });
 
         expect(config.devtool).toEqual('eval');
-        expect(config.output.path).toEqual('foobar');
+        expect(config.output.path).toEqual(path.resolve('foobar'));
         expect(config.module.loaders[0].test).toEqual(/\.css$/);
         expect(config.module.loaders[1].loader).toEqual('bar');
         expect(config.plugins[1]).toEqual(new webpack.optimize.OccurenceOrderPlugin(true));

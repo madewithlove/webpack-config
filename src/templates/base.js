@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import path from 'path';
 import Config from 'webpack-config';
 import CleanPlugin from 'clean-webpack-plugin';
@@ -38,7 +37,7 @@ export default function (options, loaders, plugins) {
             },
             plugins: [
                 new CleanPlugin(options.outputPath, process.cwd()),
-                new webpack.optimize.DedupePlugin(),
+                // new webpack.optimize.DedupePlugin(),
                 plugins.uglify,
             ],
         });
