@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.0.1
+### Changed
+- Updated `node-sass` to latest to work with Node 6
+
 ## 4.0.0
 ### Added
 - Added `server` configuration template
