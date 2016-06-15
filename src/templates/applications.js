@@ -17,7 +17,6 @@ export default function (config, options, loaders, plugins) {
             new ExtractText(`${options.filenames}.css`, {allChunks: true}),
             new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
             plugins.assets,
-            plugins.provide,
             plugins.occurenceOrder,
         ],
         module: {
