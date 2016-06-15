@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.0
+### Changed
+- The `ProvidePlugin` isn't included by default anymore (to encourage strict imports)
+
 ## 4.0.1
 ### Changed
 - Updated `node-sass` to latest to work with Node 6
