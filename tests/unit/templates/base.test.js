@@ -1,4 +1,3 @@
-import expect from 'expect';
 import applications from '../../../src';
 
 describe('templates/base', () => {

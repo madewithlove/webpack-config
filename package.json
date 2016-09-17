@@ -58,8 +58,8 @@
     "webpack": "*"
   },
   "devDependencies": {
-    "expect": "^1.15.2",
-    "mocha": "^2.4.5",
+    "expect": "^1.20.2",
+    "jest": "^15.1.1",
     "react": "^15.0.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
@@ -69,8 +69,7 @@
     "prepublish": "npm run build",
     "postversion": "git push; git push --tags; npm publish",
     "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
-    "test:unit": "mocha tests/unit --recursive --compilers js:babel-core/register",
-    "test": "npm run test:acceptance; npm run test:unit",
-    "test:watch": "npm run test:unit -- --watch"
+    "test:unit": "jest",
+    "test": "npm run test:acceptance; npm run test:unit"
   }
 }

@@ -1,4 +1,3 @@
-import expect from 'expect';
 import path from 'path';
 import webpack from 'webpack';
 import {factory} from '../../src';
