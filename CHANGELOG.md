@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.1
+### Changed
+- Updated various dependencies
+
 ## 4.1.0
 ### Changed
 - The `ProvidePlugin` isn't included by default anymore (to encourage strict imports)
