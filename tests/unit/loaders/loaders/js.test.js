@@ -28,17 +28,4 @@ describe('loaders/loaders/js', () => {
 
         expect(config.loader).toInclude('react-hmre');
     });
-
-    it('can enable Angular', () => {
-        config = loader({
-            react: false,
-            angular: true,
-            sourcePath: 'foobar',
-            loaders: {
-                js: 'babel',
-            }
-        });
-
-        expect(config.loader).toInclude('ng-annotate');
-    });
 });

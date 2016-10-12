@@ -5,7 +5,6 @@ import images from './loaders/images';
 import js from './loaders/js';
 import json from './loaders/json';
 import scss from './loaders/scss';
-import ts from './loaders/ts';
 import webfonts from './loaders/webfonts';
 import fontgen from './loaders/fontgen';
 import eslint from './preloaders/eslint';
@@ -23,7 +22,6 @@ export default function (options) {
         js: js(options),
         json: json(options),
         scss: scss(options),
-        ts: ts(options),
         webfonts: webfonts(options),
     }
 };

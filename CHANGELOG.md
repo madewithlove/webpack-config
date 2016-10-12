@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.0.0
+### Removed
+- Removed Angular and Typescript support
+
 ## 4.1.1
 ### Changed
 - Updated various dependencies

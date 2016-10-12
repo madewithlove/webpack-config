@@ -6,7 +6,7 @@ export default function (options) {
 
     return {
         test: /\.js$/,
-        loader: options.angular ? `ng-annotate!${options.loaders.js}` : options.loaders.js,
+        loader: options.loaders.js,
         include: options.sourcePath,
     };
 };
