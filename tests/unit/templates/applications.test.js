@@ -1,7 +1,5 @@
-import expect from 'expect';
 import path from 'path';
 import applications from '../../../src';
-import CleanPlugin from 'clean-webpack-plugin';
 
 describe('templates/applications', () => {
     let config;
@@ -14,8 +12,8 @@ describe('templates/applications', () => {
 
         expect(config.debug).toEqual(true);
         expect(config.output.path).toEqual(path.resolve('foobar'));
-        expect(config.output.filename).toExclude('[hash]');
-        expect(config.output.filename).toExclude('[hash]');
+        expect(config.output.filename).not.toContain('[hash]');
+        expect(config.output.filename).not.toContain('[hash]');
 
         config = applications({
             development: false,
@@ -24,8 +22,7 @@ describe('templates/applications', () => {
 
         expect(config.debug).toEqual(false);
         expect(config.output.path).toEqual(path.resolve('foobar'));
-        expect(config.output.filename).toInclude('[hash]');
-        expect(config.plugins[1]).toBeA(CleanPlugin);
+        expect(config.output.filename).toContain('[hash]');
     });
 
     it('can enable HMR', () => {
@@ -49,8 +46,8 @@ describe('templates/applications', () => {
             ],
         });
 
-        expect(config.module.loaders).toInclude({foo: 'bar'});
-        expect(config.plugins).toInclude({foo: 'bar'});
+        expect(config.module.loaders[0]).toEqual({foo: 'bar'});
+        expect(config.plugins[0]).toEqual({foo: 'bar'});
     });
 
     it('can enable linting', () => {

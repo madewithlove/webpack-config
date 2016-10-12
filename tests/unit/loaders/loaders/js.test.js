@@ -1,4 +1,3 @@
-import expect from 'expect';
 import loader from '../../../../src/loaders/loaders/js';
 
 describe('loaders/loaders/js', () => {
@@ -13,7 +12,7 @@ describe('loaders/loaders/js', () => {
             }
         });
 
-        expect(config.loader).toInclude('react');
+        expect(config.loader).toContain('react');
     });
 
     it('can enable HMR', () => {
@@ -26,6 +25,6 @@ describe('loaders/loaders/js', () => {
             }
         });
 
-        expect(config.loader).toInclude('react-hmre');
+        expect(config.loader).toContain('react-hmre');
     });
 });
