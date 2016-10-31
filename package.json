@@ -32,7 +32,7 @@
     "eslint": "^3.7.1",
     "eslint-config-madewithlove": "^5.0.3",
     "eslint-loader": "^1.5.0",
-    "extract-text-webpack-plugin": "github:rabidfx/extract-text-webpack-plugin",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "image-webpack-loader": "^3.0.0",
@@ -59,8 +59,8 @@
     "case-sensitive-paths-webpack-plugin": "^1.1.4",
     "jest": "^18.0.0",
     "react": "^15.3.2",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "2.1.0-beta.25",
+    "webpack-dev-server": "2.1.0-beta.10"
   },
   "scripts": {
     "build": "babel src -d dist",
