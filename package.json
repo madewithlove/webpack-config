@@ -67,5 +67,11 @@
     "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
     "test:unit": "jest",
     "test": "yarn test:acceptance; yarn test:unit"
+  },
+  "babel": {
+    "presets": ["stage-0", "es2015"]
+  },
+  "eslintConfig": {
+    "extends": "madewithlove"
   }
 }
