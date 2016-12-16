@@ -14,4 +14,4 @@ export default function (options) {
         stats: stats(options),
         uglify: uglify(options),
     };
-};
+}

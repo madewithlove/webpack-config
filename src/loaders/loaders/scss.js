@@ -5,4 +5,4 @@ export default function (options) {
         test: /\.scss$/,
         loader: ExtractText.extract('style', `${options.loaders.css}!sass`),
     };
-};
+}

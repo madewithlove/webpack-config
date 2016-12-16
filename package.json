@@ -64,6 +64,7 @@
     "build": "NODE_ENV=production webpack --progress --bail",
     "prepublish": "yarn build",
     "postversion": "git push; git push --tags; npm publish",
+    "lint": "eslint src",
     "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
     "test:unit": "jest",
     "test": "yarn test:acceptance; yarn test:unit"
@@ -72,6 +73,9 @@
     "presets": ["stage-0", "es2015"]
   },
   "eslintConfig": {
-    "extends": "madewithlove"
+    "extends": "madewithlove",
+    "rules": {
+      "filenames/match-exported": 0
+    }
   }
 }

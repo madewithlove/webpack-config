@@ -1,5 +1,5 @@
 export default function (options) {
-    let presets = options.react ? ['es2015', 'react', 'stage-0'] : ['es2015', 'stage-0'];
+    const presets = options.react ? ['es2015', 'react', 'stage-0'] : ['es2015', 'stage-0'];
     if (options.react && options.hot) {
         presets.push('react-hmre');
     }
@@ -11,8 +11,8 @@ export default function (options) {
         env: {
             production: {
                 ast: false,
-                compact: true
-            }
-        }
+                compact: true,
+            },
+        },
     };
-};
+}

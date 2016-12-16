@@ -1,7 +1,7 @@
 import StatsPlugin from 'stats-webpack-plugin';
 
-export default function (options) {
+export default function () {
     return new StatsPlugin('stats.json', {
         chunkModules: true,
     });
-};
+}

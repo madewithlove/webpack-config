@@ -10,7 +10,7 @@ export default function (options, loaders, plugins) {
         cache: true,
 
         entry: {
-            [options.name]: ['./' + options.entry],
+            [options.name]: [`./${options.entry}`],
         },
         output: {
             pathinfo: options.development,
@@ -44,4 +44,4 @@ export default function (options, loaders, plugins) {
     }
 
     return config;
-};
+}

@@ -14,7 +14,6 @@ import baseConfiguration from './templates/base';
  * @returns {Object}
  */
 export default function (configuration, options = {}) {
-
     // Require dotenv variables
     const dotenvFile = `${process.cwd()}/.env`;
     try {

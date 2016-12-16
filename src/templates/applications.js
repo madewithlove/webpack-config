@@ -3,19 +3,18 @@ import ExtractText from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
 export default function (config, options, loaders, plugins) {
-
     //////////////////////////////////////////////////////////////////////
     ////////////////////////////// DEFAULTS //////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
     config = config.merge({
         output: {
-            publicPath: '/' + options.outputPath.replace('public/', ''),
-            chunkFilename: options.filenames.replace('hash', 'chunkhash') + '.js',
+            publicPath: `/${options.outputPath.replace('public/', '')}`,
+            chunkFilename: `${options.filenames.replace('hash', 'chunkhash')}.js`,
         },
         plugins: [
             new ExtractText(`${options.filenames}.css`, {allChunks: true}),
-            new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-gb)$/),
+            new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en-gb)$/),
             plugins.assets,
             plugins.occurenceOrder,
         ],
@@ -35,7 +34,7 @@ export default function (config, options, loaders, plugins) {
                 loaders.images,
             ],
         },
-        postcss: function () {
+        postcss() {
             return [autoprefixer];
         },
     });
@@ -55,13 +54,13 @@ export default function (config, options, loaders, plugins) {
     if (options.linting && options.development) {
         config = config.merge({
             eslint: {
-                extends: "eslint-config-madewithlove",
+                extends: 'eslint-config-madewithlove',
             },
             module: {
                 preLoaders: [
                     loaders.eslint,
-                ]
-            }
+                ],
+            },
         });
     }
 
@@ -89,12 +88,12 @@ export default function (config, options, loaders, plugins) {
             },
             plugins: [
                 new webpack.HotModuleReplacementPlugin(),
-                new webpack.NoErrorsPlugin()
+                new webpack.NoErrorsPlugin(),
             ],
         });
 
         config.entry[options.name].unshift(
-            'webpack-dev-server/client?' + options.devServer,
+            `webpack-dev-server/client?${options.devServer}`,
             'webpack/hot/only-dev-server',
         );
     } else if (options.hot && !options.devServer) {
@@ -103,7 +102,7 @@ export default function (config, options, loaders, plugins) {
         config = config.merge({
             plugins: [
                 new webpack.HotModuleReplacementPlugin(),
-                new webpack.NoErrorsPlugin()
+                new webpack.NoErrorsPlugin(),
             ],
         });
     }
@@ -129,4 +128,4 @@ export default function (config, options, loaders, plugins) {
     }
 
     return config;
-};
+}

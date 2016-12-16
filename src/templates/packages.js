@@ -10,10 +10,10 @@ export default function (config, options, loaders, plugins) {
             path: options.outputPath,
             filename: 'index.js',
             library: options.libraryName,
-            libraryTarget: 'umd'
+            libraryTarget: 'umd',
         },
         plugins: [
             plugins.occurenceOrder,
-        ]
+        ],
     });
-};
+}

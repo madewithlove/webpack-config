@@ -4,4 +4,4 @@ export default function (options) {
         loader: 'baggage-loader?[file].html=template&[file].scss',
         include: options.sourcePath,
     };
-};
+}

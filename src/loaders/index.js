@@ -23,6 +23,6 @@ export default function (options) {
         json: json(options),
         scss: scss(options),
         webfonts: webfonts(options),
-    }
-};
+    };
+}
 

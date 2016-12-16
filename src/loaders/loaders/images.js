@@ -3,4 +3,4 @@ export default function (options) {
         test: /\.(png|gif|jpe?g|svg)/,
         loaders: [`url?limit=${options.inlineLimit}`, 'image-webpack?bypassOnDebug'],
     };
-};
+}

@@ -11,8 +11,8 @@ export default function (options) {
 
         // Environment
         name: 'main',
-        development: development,
-        env: env,
+        development,
+        env,
 
         // HMR
         domain: process.env.APP_URL,
@@ -44,4 +44,4 @@ export default function (options) {
     options.sourcePath = path.resolve(path.dirname(options.sourcePath));
 
     return options;
-};
+}
