@@ -1,5 +1,5 @@
 export default function (options) {
-    const presets = options.react ? ['es2015', 'react', 'stage-0'] : ['es2015', 'stage-0'];
+    const presets = options.react ? ['latest', 'react', 'stage-0'] : ['latest', 'stage-0'];
     if (options.react && options.hot) {
         presets.push('react-hmre');
     }
