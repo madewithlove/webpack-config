@@ -55,13 +55,16 @@
     "webpack": "*"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.1",
+    "babel-preset-latest": "^6.16.0",
     "jest": "^18.0.0",
     "react": "^15.3.2",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack --progress --bail",
+    "build": "babel src -d dist",
     "prepublish": "yarn build",
     "postversion": "git push; git push --tags; npm publish",
     "lint": "eslint src",
@@ -70,7 +73,10 @@
     "test": "yarn test:acceptance; yarn test:unit"
   },
   "babel": {
-    "presets": ["stage-0", "es2015"]
+    "presets": [
+      "env",
+      "stage-0"
+    ]
   },
   "eslintConfig": {
     "extends": "madewithlove",
