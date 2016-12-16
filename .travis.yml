@@ -6,5 +6,5 @@ node_js:
   - 7
 
 script:
-  - yarn lint
-  - yarn test
+  - npm run lint
+  - npm run test
