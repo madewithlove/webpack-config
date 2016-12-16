@@ -29,10 +29,10 @@
     "babel-preset-stage-0": "^6.16.0",
     "baggage-loader": "^0.2.4",
     "clean-webpack-plugin": "^0.1.13",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.26.1",
     "dotenv": "^2.0.0",
     "eslint": "^3.7.1",
-    "eslint-config-madewithlove": "^4.0.1",
+    "eslint-config-madewithlove": "^5.0.3",
     "eslint-loader": "^1.5.0",
     "extract-text-webpack-plugin": "github:rabidfx/extract-text-webpack-plugin",
     "file-loader": "^0.9.0",
@@ -41,7 +41,7 @@
     "imagemin": "^5.2.2",
     "json-loader": "^0.5.4",
     "merge": "^1.2.0",
-    "node-sass": "^3.10.1",
+    "node-sass": "^4.0.0",
     "object-path": "^0.11.2",
     "postcss-loader": "^1.1.0",
     "sass-loader": "^4.0.2",
@@ -55,17 +55,17 @@
     "webpack": "*"
   },
   "devDependencies": {
-    "jest": "^16.0.1",
+    "jest": "^18.0.0",
     "react": "^15.3.2",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --bail",
-    "prepublish": "npm run build",
+    "prepublish": "yarn build",
     "postversion": "git push; git push --tags; npm publish",
     "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
     "test:unit": "jest",
-    "test": "npm run test:acceptance; npm run test:unit"
+    "test": "yarn test:acceptance; yarn test:unit"
   }
 }
