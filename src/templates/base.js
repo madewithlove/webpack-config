@@ -1,6 +1,7 @@
 import path from 'path';
 import Config from 'webpack-config';
 import CleanPlugin from 'clean-webpack-plugin';
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import objectPath from 'object-path';
 
 export default function (options, loaders, plugins) {
@@ -26,7 +27,10 @@ export default function (options, loaders, plugins) {
         },
     });
 
-    config.plugins.push(plugins.define);
+    config.plugins.push(
+        plugins.define,
+        new CaseSensitivePathsPlugin(),
+    );
 
     if (!options.development) {
         config = config.merge({
