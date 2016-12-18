@@ -35,7 +35,16 @@ export default function (config, options, loaders, plugins) {
             ],
         },
         postcss() {
-            return [autoprefixer];
+            return [
+                autoprefixer({
+                    browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9',
+                    ],
+                }),
+            ];
         },
     });
 
@@ -113,6 +122,11 @@ export default function (config, options, loaders, plugins) {
 
     if (!options.development) {
         config = config.merge({
+            node: {
+                fs: 'empty',
+                net: 'empty',
+                tls: 'empty'
+            },
             plugins: [
                 new webpack.optimize.AggressiveMergingPlugin(),
                 new webpack.optimize.CommonsChunkPlugin({

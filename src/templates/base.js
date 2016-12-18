@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 import Config from 'webpack-config';
 import CleanPlugin from 'clean-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
@@ -9,6 +10,7 @@ export default function (options, loaders, plugins) {
         debug: true,
         devtool: 'eval',
         cache: true,
+        bail: true,
 
         entry: {
             [options.name]: [`./${options.entry}`],
@@ -41,7 +43,7 @@ export default function (options, loaders, plugins) {
             },
             plugins: [
                 new CleanPlugin(options.outputPath, process.cwd()),
-                // new webpack.optimize.DedupePlugin(),
+                new webpack.optimize.DedupePlugin(),
                 plugins.uglify,
             ],
         });
