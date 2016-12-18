@@ -2,10 +2,16 @@ import webpack from 'webpack';
 
 export default function () {
     return new webpack.optimize.UglifyJsPlugin({
-        mangle: true,
         compress: {
             screw_ie8: true,
-            warnings: false,
+            warnings: false
         },
+        mangle: {
+            screw_ie8: true
+        },
+        output: {
+            comments: false,
+            screw_ie8: true
+        }
     });
 }
