@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 5.1.0
+
 ## 5.0.1
 ### Changed
 - Updated various dependencies
