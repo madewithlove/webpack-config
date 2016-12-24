@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.4
+### Fixed
+- Fixed context where no pre-existing env variable is set 
+
 ## 5.1.3
 ### Fixed
 - Missing dependency
