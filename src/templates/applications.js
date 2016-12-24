@@ -3,7 +3,6 @@ import ExtractText from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
 export default function (config, options, loaders, plugins) {
-
     //////////////////////////////////////////////////////////////////////
     ////////////////////////////// DEFAULTS //////////////////////////////
     //////////////////////////////////////////////////////////////////////
@@ -126,7 +125,7 @@ export default function (config, options, loaders, plugins) {
             node: {
                 fs: 'empty',
                 net: 'empty',
-                tls: 'empty'
+                tls: 'empty',
             },
             plugins: [
                 new webpack.optimize.AggressiveMergingPlugin(),
