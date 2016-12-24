@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.2
+### Fixed
+- Missing environment variable for `babel-preset-react-app`
+
 ## 5.1.1
 ### Fixed
 - Missing dependency

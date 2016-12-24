@@ -39,6 +39,9 @@ export default function (options) {
 
     }, options);
 
+    // Set NODE_ENV for babel-preset-react-app
+    process.env.NODE_ENV = env.replace('local', 'development');
+
     // Uniformize source path and entry point
     options.entry = options.sourcePath;
     options.sourcePath = path.resolve(path.dirname(options.sourcePath));
