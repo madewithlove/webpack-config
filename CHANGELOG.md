@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.1
+### Fixed
+- Missing dependency
+
 ## 5.1.0
 ### Added
 - Added `CaseSensitivePathsPlugin` to prevent casing-related import issues
