@@ -1,6 +1,16 @@
 # CHANGELOG
 
 ## 5.1.0
+### Added
+- Added `CaseSensitivePathsPlugin` to prevent casing-related import issues
+
+### Changed
+- Use `react-app` babel preset as basis for babelrc, and `latest` for non React apps
+- Better Uglify configuration
+- Updated various dependencies
+
+### Fixed
+- Fixed typo in `OccurrenceOrderPlugin` plugin
 
 ## 5.0.1
 ### Changed
