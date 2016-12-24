@@ -67,9 +67,10 @@
     "prepublish": "yarn build",
     "postversion": "git push; git push --tags; npm publish",
     "lint": "eslint src",
-    "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
+    "test:acceptance": "cd tests/acceptance && webpack --bail",
+    "test:acceptance:production": "NODE_ENV=production yarn test:acceptance",
     "test:unit": "jest",
-    "test": "yarn test:acceptance; yarn test:unit"
+    "test": "yarn test:acceptance && yarn test:acceptance:production && yarn test:unit"
   },
   "babel": {
     "presets": [

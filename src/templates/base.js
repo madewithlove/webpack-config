@@ -10,7 +10,6 @@ export default function (options, loaders, plugins) {
         debug: true,
         devtool: 'eval',
         cache: true,
-        bail: true,
 
         entry: {
             [options.name]: [`./${options.entry}`],
