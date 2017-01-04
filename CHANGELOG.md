@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.5
+### Fixed
+- Allow `testing` as environment instead of `test` 
+
 ## 5.1.4
 ### Fixed
 - Fixed context where no pre-existing env variable is set 
