@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 5.1.6
+### Fixed
+- Fix small regression
+
 ## 5.1.5
 ### Fixed
-- Allow `testing` as environment instead of `test` 
+- Allow `testing` as environment instead of `test`
 
 ## 5.1.4
 ### Fixed
