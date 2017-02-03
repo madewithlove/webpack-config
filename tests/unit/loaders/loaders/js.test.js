@@ -1,4 +1,4 @@
-import loader from '../../../../src/loaders/loaders/js';
+import loader from '../../../../src-old/loaders/loaders/js';
 
 describe('loaders/loaders/js', () => {
     let config;

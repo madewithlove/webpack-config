@@ -1,6 +1,13 @@
-var config = require('../../dist').default;
+const {createConfig} = require('@webpack-blocks/webpack2');
+const application = require('../../dist').default;
 
-module.exports = config({
-    sourcePath: 'src',
-    outputPath: 'builds',
-});
+let config = createConfig([
+    application({
+        sourcePath: 'src',
+        outputPath: 'builds',
+    }),
+]);
+
+console.log(config);
+
+module.exports = config;
