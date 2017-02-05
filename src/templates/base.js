@@ -20,7 +20,7 @@ export default function (options, loaders, plugins) {
         },
         plugins: objectPath.get(options, 'plugins', []),
         module: {
-            loaders: objectPath.get(options, 'module.loaders', []),
+            rules: objectPath.get(options, 'module.rules', []),
         },
     });
 
@@ -38,7 +38,6 @@ export default function (options, loaders, plugins) {
             plugins: [
                 new webpack.LoaderOptionsPlugin({debug: false}),
                 new CleanPlugin(options.outputPath, process.cwd()),
-                new webpack.optimize.DedupePlugin(),
                 plugins.uglify,
             ],
         });

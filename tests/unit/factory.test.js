@@ -7,7 +7,7 @@ describe('factory', () => {
         const template = (config, options, loaders, plugins) => {
             return config.merge({
                 module: {
-                    loaders: [
+                    rules: [
                         loaders.css,
                         {
                             test: /\.foo/,
@@ -28,8 +28,8 @@ describe('factory', () => {
 
         expect(config.devtool).toEqual('eval');
         expect(config.output.path).toEqual(path.resolve('foobar'));
-        expect(config.module.loaders[0].test).toEqual(/\.css$/);
-        expect(config.module.loaders[1].loader).toEqual('bar');
-        expect(config.plugins[2]).toEqual(new webpack.optimize.OccurenceOrderPlugin(true));
+        expect(config.module.rules[0].test).toEqual(/\.css$/);
+        expect(config.module.rules[1].loader).toEqual('bar');
+        expect(config.plugins[3]).toEqual(new webpack.optimize.OccurrenceOrderPlugin(true));
     });
 });

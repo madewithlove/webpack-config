@@ -10,7 +10,6 @@ describe('templates/applications', () => {
             outputPath: 'foobar',
         });
 
-        expect(config.debug).toEqual(true);
         expect(config.output.path).toEqual(path.resolve('foobar'));
         expect(config.output.filename).not.toContain('[hash]');
         expect(config.output.filename).not.toContain('[hash]');
@@ -20,7 +19,6 @@ describe('templates/applications', () => {
             outputPath: 'foobar',
         });
 
-        expect(config.debug).toEqual(false);
         expect(config.output.path).toEqual(path.resolve('foobar'));
         expect(config.output.filename).toContain('[hash]');
     });
@@ -37,7 +35,7 @@ describe('templates/applications', () => {
         config = applications({
             development: false,
             module: {
-                loaders: [
+                rules: [
                     {foo: 'bar'}
                 ]
             },
@@ -46,7 +44,7 @@ describe('templates/applications', () => {
             ],
         });
 
-        expect(config.module.loaders[0]).toEqual({foo: 'bar'});
+        expect(config.module.rules[0]).toEqual({foo: 'bar'});
         expect(config.plugins[0]).toEqual({foo: 'bar'});
     });
 
@@ -55,7 +53,7 @@ describe('templates/applications', () => {
             linting: true,
         });
 
-        expect(config.module.rules[config.module.rules.length].loader).toEqual('eslint-loader');
+        expect(config.module.rules[config.module.rules.length - 1].loader).toEqual('eslint-loader');
         expect(config.eslint.extends).toEqual('eslint-config-madewithlove');
     });
 });
