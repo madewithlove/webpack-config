@@ -6,6 +6,6 @@ export default function (options) {
 
     return {
         test: /\.css$/,
-        loader: ExtractText.extract({fallback: 'style', use}),
+        loader: ExtractText.extract({fallback: 'style-loader', use}),
     };
 }

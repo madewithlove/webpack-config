@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.0.1
+### Fixed
+- Added missing loader prefixes
+
 ## 6.0.0
 ### Changed
 - Initial Webpack 2 support
