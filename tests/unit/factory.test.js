@@ -30,6 +30,6 @@ describe('factory', () => {
         expect(config.output.path).toEqual(path.resolve('foobar'));
         expect(config.module.loaders[0].test).toEqual(/\.css$/);
         expect(config.module.loaders[1].loader).toEqual('bar');
-        expect(config.plugins[1]).toEqual(new webpack.optimize.OccurenceOrderPlugin(true));
+        expect(config.plugins[2]).toEqual(new webpack.optimize.OccurenceOrderPlugin(true));
     });
 });

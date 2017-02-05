@@ -2,7 +2,7 @@ import path from 'path';
 import merge from 'merge';
 
 export default function (options) {
-    const env = process.env.BABEL_ENV || process.env.NODE_ENV || process.env.APP_ENV;
+    const env = process.env.BABEL_ENV || process.env.NODE_ENV || process.env.APP_ENV || 'development';
     const development = typeof options.development === 'undefined'
         ? env !== 'production'
         : options.development;
@@ -38,6 +38,11 @@ export default function (options) {
         },
 
     }, options);
+
+    // Set NODE_ENV for babel-preset-react-app
+    process.env.NODE_ENV = env
+        .replace('local', 'development')
+        .replace('testing', 'test');
 
     // Uniformize source path and entry point
     options.entry = options.sourcePath;

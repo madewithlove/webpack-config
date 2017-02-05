@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 5.1.6
+### Fixed
+- Fix small regression
+
+## 5.1.5
+### Fixed
+- Allow `testing` as environment instead of `test`
+
+## 5.1.4
+### Fixed
+- Fixed context where no pre-existing env variable is set 
+
+## 5.1.3
+### Fixed
+- Missing dependency
+
+## 5.1.2
+### Fixed
+- Missing environment variable for `babel-preset-react-app`
+
+## 5.1.1
+### Fixed
+- Missing dependency
+
+## 5.1.0
+### Added
+- Added `CaseSensitivePathsPlugin` to prevent casing-related import issues
+
+### Changed
+- Use `react-app` babel preset as basis for babelrc, and `latest` for non React apps
+- Better Uglify configuration
+- Updated various dependencies
+
+### Fixed
+- Fixed typo in `OccurrenceOrderPlugin` plugin
+
 ## 5.0.1
 ### Changed
 - Updated various dependencies

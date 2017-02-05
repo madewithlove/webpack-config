@@ -5,14 +5,7 @@ export default function (options) {
     }
 
     return {
-        cacheDirectory: true,
         presets,
         plugins: ['transform-decorators-legacy'],
-        env: {
-            production: {
-                ast: false,
-                compact: true,
-            },
-        },
     };
 }

@@ -9,7 +9,6 @@ export default function (options, loaders, plugins) {
     let config = new Config().merge({
         devtool: 'eval',
         cache: true,
-        bail: true,
 
         entry: {
             [options.name]: [`./${options.entry}`],
