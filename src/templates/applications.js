@@ -127,4 +127,4 @@ export default function (config, options, loaders, plugins) {
     }
 
     return config;
-};
+}

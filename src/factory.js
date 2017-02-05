@@ -31,4 +31,4 @@ export default function (configuration, options = {}) {
     const config = baseConfiguration(options, loaders, plugins);
 
     return configuration(config, options, loaders, plugins);
-};
+}

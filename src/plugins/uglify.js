@@ -14,4 +14,4 @@ export default function () {
             screw_ie8: true,
         },
     });
-};
+}

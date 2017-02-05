@@ -5,4 +5,4 @@ export default function (options) {
         include: options.sourcePath,
         enforce: 'pre',
     };
-};
+}

@@ -8,4 +8,4 @@ export default function (options) {
         test: /\.scss$/,
         loader: ExtractText.extract({fallback: 'style-loader', use}),
     };
-};
+}

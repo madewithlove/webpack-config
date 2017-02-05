@@ -3,4 +3,4 @@ export default function () {
         test: /\.(ttf|eot)/,
         loader: 'url',
     };
-};
+}

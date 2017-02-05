@@ -46,4 +46,4 @@ export default function (options, loaders, plugins) {
     }
 
     return config;
-};
+}

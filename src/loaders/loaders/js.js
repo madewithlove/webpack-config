@@ -9,4 +9,4 @@ export default function (options) {
         loader: options.loaders.js,
         include: options.sourcePath,
     };
-};
+}

@@ -8,4 +8,4 @@ export default function (options) {
         'process.env.BABEL_ENV': JSON.stringify(options.env),
         'process.env.NODE_ENV': JSON.stringify(options.env),
     });
-};
+}
