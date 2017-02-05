@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.0.0
+### Changed
+- Initial Webpack 2 support
+
 ## 5.1.6
 ### Fixed
 - Fix small regression
