@@ -6,4 +6,4 @@ export default function () {
         _: 'lodash',
         jQuery: 'jquery',
     });
-}
+};

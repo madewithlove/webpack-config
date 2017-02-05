@@ -4,4 +4,4 @@ export default function () {
     return new StatsPlugin('stats.json', {
         chunkModules: true,
     });
-}
+};

@@ -14,9 +14,9 @@ export default loaders => {
                         ],
                     }),
                 ];
-            }
+            },
         };
 
-        return {loader, options: loader !== 'postcss-loader' ? {} : postcss};
+        return {loader, options: loader === 'postcss-loader' ? postcss : {}};
     });
 };

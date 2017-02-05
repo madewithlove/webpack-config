@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import ExtractText from 'extract-text-webpack-plugin';
-import autoprefixer from 'autoprefixer';
 
 export default function (config, options, loaders, plugins) {
     //////////////////////////////////////////////////////////////////////
@@ -128,4 +127,4 @@ export default function (config, options, loaders, plugins) {
     }
 
     return config;
-}
+};

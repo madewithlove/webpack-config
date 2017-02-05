@@ -8,4 +8,4 @@ export default function (options) {
         presets,
         plugins: ['transform-decorators-legacy'],
     };
-}
+};

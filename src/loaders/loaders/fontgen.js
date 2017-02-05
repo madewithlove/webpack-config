@@ -5,4 +5,4 @@ export default function (options) {
         test: /\.font\.json$/,
         loader: ExtractText.extract({fallback: 'style', use: `${options.loaders.css}!fontgen?embed`}),
     };
-}
+};

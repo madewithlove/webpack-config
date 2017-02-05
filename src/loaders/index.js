@@ -24,5 +24,5 @@ export default function (options) {
         scss: scss(options),
         webfonts: webfonts(options),
     };
-}
+};
 

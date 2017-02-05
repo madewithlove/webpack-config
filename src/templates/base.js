@@ -1,5 +1,5 @@
-import webpack from 'webpack';
 import path from 'path';
+import webpack from 'webpack';
 import Config from 'webpack-config';
 import CleanPlugin from 'clean-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
@@ -29,7 +29,9 @@ export default function (options, loaders, plugins) {
         new CaseSensitivePathsPlugin(),
     );
 
-    if (!options.development) {
+    if (options.development) {
+        config.plugins.push(new webpack.LoaderOptionsPlugin({debug: true}));
+    } else {
         config = config.merge({
             devtool: false,
             output: {
@@ -41,9 +43,7 @@ export default function (options, loaders, plugins) {
                 plugins.uglify,
             ],
         });
-    } else {
-        config.plugins.push(new webpack.LoaderOptionsPlugin({debug: true}));
     }
 
     return config;
-}
+};

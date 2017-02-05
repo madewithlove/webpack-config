@@ -7,5 +7,5 @@ export default function (options) {
     return {
         test: /\.css$/,
         loader: ExtractText.extract({fallback: 'style', use}),
-    }
+    };
 };

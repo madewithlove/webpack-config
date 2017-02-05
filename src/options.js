@@ -49,4 +49,4 @@ export default function (options) {
     options.sourcePath = path.resolve(path.dirname(options.sourcePath));
 
     return options;
-}
+};

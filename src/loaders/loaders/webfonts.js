@@ -7,4 +7,4 @@ export default function (options) {
             mimetype: 'application/font-woff',
         },
     };
-}
+};

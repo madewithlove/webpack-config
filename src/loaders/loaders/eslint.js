@@ -5,4 +5,4 @@ export default function () {
         exclude: /node_modules/,
         enforce: 'pre',
     };
-}
+};

@@ -6,4 +6,4 @@ export default function (options) {
         filename: 'manifest.json',
         prettyPrint: true,
     });
-}
+};

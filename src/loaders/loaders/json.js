@@ -3,4 +3,4 @@ export default function () {
         test: /\.json/,
         loader: 'json',
     };
-}
+};

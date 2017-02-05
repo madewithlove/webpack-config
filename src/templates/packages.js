@@ -16,4 +16,4 @@ export default function (config, options, loaders, plugins) {
             plugins.occurenceOrder,
         ],
     });
-}
+};
