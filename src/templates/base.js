@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import webpack from 'webpack';
 import Config from 'webpack-config';
 import CleanPlugin from 'clean-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';

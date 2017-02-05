@@ -19,10 +19,8 @@ export default function (config, options, loaders, plugins) {
             plugins.occurenceOrder,
         ],
         module: {
-            preLoaders: [
+            rules: [
                 loaders.baggage,
-            ],
-            loaders: [
                 loaders.css,
                 loaders.scss,
                 loaders.js,
@@ -34,24 +32,12 @@ export default function (config, options, loaders, plugins) {
                 loaders.images,
             ],
         },
-        postcss() {
-            return [
-                autoprefixer({
-                    browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9',
-                    ],
-                }),
-            ];
-        },
     });
 
     if (options.ts) {
         config.merge({
             module: {
-                loaders: [loaders.ts],
+                rules: [loaders.ts],
             },
         });
     }
@@ -66,7 +52,7 @@ export default function (config, options, loaders, plugins) {
                 extends: 'eslint-config-madewithlove',
             },
             module: {
-                preLoaders: [
+                rules: [
                     loaders.eslint,
                 ],
             },

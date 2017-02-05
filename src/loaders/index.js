@@ -7,8 +7,8 @@ import json from './loaders/json';
 import scss from './loaders/scss';
 import webfonts from './loaders/webfonts';
 import fontgen from './loaders/fontgen';
-import eslint from './preloaders/eslint';
-import baggage from './preloaders/baggage';
+import eslint from './loaders/eslint';
+import baggage from './loaders/baggage';
 
 export default function (options) {
     return {

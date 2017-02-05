@@ -55,7 +55,7 @@ describe('templates/applications', () => {
             linting: true,
         });
 
-        expect(config.module.preLoaders[1].loader).toEqual('eslint-loader');
+        expect(config.module.rules[config.module.rules.length].loader).toEqual('eslint-loader');
         expect(config.eslint.extends).toEqual('eslint-config-madewithlove');
     });
 });
