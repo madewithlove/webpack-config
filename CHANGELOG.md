@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.0.2
+### Fixed
+- Fixed incorrect `NoEmitOnErrorsPlugin` plugin name
+
 ## 6.0.1
 ### Fixed
 - Added missing loader prefixes
