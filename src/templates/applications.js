@@ -82,7 +82,7 @@ export default function (config, options, loaders, plugins) {
             },
             plugins: [
                 new webpack.HotModuleReplacementPlugin(),
-                new webpack.NoErrorsPlugin(),
+                new webpack.NoEmitOnErrorsPlugin(),
             ],
         });
 
@@ -96,7 +96,7 @@ export default function (config, options, loaders, plugins) {
         config = config.merge({
             plugins: [
                 new webpack.HotModuleReplacementPlugin(),
-                new webpack.NoErrorsPlugin(),
+                new webpack.NoEmitOnErrorsPlugin(),
             ],
         });
     }

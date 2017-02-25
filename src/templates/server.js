@@ -45,7 +45,7 @@ export default function (config, options, loaders, plugins) {
 
         config.plugins.push(
             new webpack.HotModuleReplacementPlugin(),
-            new webpack.NoErrorsPlugin(),
+            new webpack.NoEmitOnErrorsPlugin(),
         );
     }
 
