@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.0.4
+### Fixed
+- Fixed `server` template 
+
 ## 6.0.2
 ### Fixed
 - Fixed incorrect `NoEmitOnErrorsPlugin` plugin name

@@ -20,7 +20,7 @@ export default function (config, options, loaders, plugins) {
             }),
         ],
         module: {
-            loaders: [
+            rules: [
                 loaders.js,
                 loaders.html,
                 loaders.fontgen,
