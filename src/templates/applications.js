@@ -76,9 +76,11 @@ export default function (config, options, loaders, plugins) {
                 publicPath: `${options.devServer}/${options.outputPath}`,
             },
             devServer: {
-                contentBase: options.domain,
                 historyApiFallback: true,
                 hot: true,
+                proxy: {
+                    '*': options.domain,
+                },
             },
             plugins: [
                 new webpack.HotModuleReplacementPlugin(),

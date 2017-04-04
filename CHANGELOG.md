@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.0.5
+### Fixed
+- Fixed deprecated `contentBase` option when using `webpack-dev-server`
+
 ## 6.0.4
 ### Fixed
 - Fixed `server` template 
