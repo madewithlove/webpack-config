@@ -1,8 +1,11 @@
 import ExtractText from 'extract-text-webpack-plugin';
+import expandLoaders from '../expandLoaders';
 
 export default function (options) {
+    const use = expandLoaders(`${options.loaders.css}!webfonts-loader?embed`);
+
     return {
-        test: /\.font\.json$/,
-        loader: ExtractText.extract({fallback: 'style-loader', use: `${options.loaders.css}!fontgen-loader?embed`}),
+        test: /\.font\.(js|json$)/,
+        loader: ExtractText.extract({fallback: 'style-loader', use}),
     };
 }
