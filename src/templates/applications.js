@@ -29,6 +29,7 @@ export default function (config, options, loaders, plugins) {
                 loaders.fonts,
                 loaders.webfonts,
                 loaders.images,
+                loaders.vue,
             ],
         },
     });

@@ -19,6 +19,11 @@ export default function (options, loaders, plugins) {
             filename: `${options.filenames}.js`,
         },
         plugins: objectPath.get(options, 'plugins', []),
+        resolve: {
+            alias: {
+                'vue$': 'vue/dist/vue.common.js',
+            },
+        },
         module: {
             rules: objectPath.get(options, 'module.rules', []),
         },
