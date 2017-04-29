@@ -20,7 +20,7 @@
     "assets-webpack-plugin": "^3.4.0",
     "autoprefixer": "^6.7.5",
     "babel-core": "^6.23.1",
-    "babel-loader": "^6.3.2",
+    "babel-loader": "^7.0.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-react": "^6.23.0",
     "babel-preset-react-app": "^2.1.0",
@@ -32,7 +32,7 @@
     "css-loader": "^0.28.0",
     "dotenv": "^4.0.0",
     "eslint": "^3.16.1",
-    "eslint-config-madewithlove": "^5.0.3",
+    "eslint-config-madewithlove": "^5.1.1",
     "eslint-loader": "^1.6.3",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.11.1",
@@ -48,21 +48,22 @@
     "stats-webpack-plugin": "^0.6.0",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
-    "webfonts-loader": "^1.0.2",
+    "vue-loader": "^12.0.2",
+    "webfonts-loader": "^1.1.0",
     "webpack-config": "^7.0.0",
     "webpack-node-externals": "^1.5.4"
   },
-  "peerDependencies": {
-    "webpack": "*"
-  },
   "devDependencies": {
     "babel-cli": "^6.23.0",
-    "babel-preset-env": "^1.1.10",
+    "babel-preset-env": "^1.4.0",
     "babel-preset-latest": "^6.16.0",
     "jest": "^19.0.2",
     "react": "^15.3.2",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "peerDependencies": {
+    "webpack": "^2.0"
   },
   "scripts": {
     "build": "babel src -d dist",
