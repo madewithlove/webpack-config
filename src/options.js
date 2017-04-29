@@ -34,7 +34,7 @@ export default function (options) {
         // Loaders
         loaders: {
             js: 'babel-loader',
-            css: development ? 'css-loader' : 'css-loader!postcss-loader',
+            css: 'css-loader!postcss-loader',
         },
 
     }, options);
