@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 6.1.0
+### Added
+- Add Vue support
+
+### Changed
+- Always pass PostCSS on stylesheets regardless of environment
+
 ## 6.0.6
 ### Fixed
 - Fixed webfont generation support
