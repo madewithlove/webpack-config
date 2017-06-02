@@ -1,13 +1,15 @@
+import path from 'path';
+
 export default function (config, options, loaders, plugins) {
     return config.merge({
         module: {
-            loaders: [
+            rules: [
                 loaders.js,
                 loaders.json,
             ],
         },
         output: {
-            path: options.outputPath,
+            path: path.resolve(options.outputPath),
             filename: 'index.js',
             library: options.libraryName,
             libraryTarget: 'umd',
