@@ -6,7 +6,7 @@ export default function (options) {
 
     return {
         test: /\.js$/,
-        loader: options.loaders.js,
+        use: options.loaders.js,
         include: options.sourcePath,
     };
 }

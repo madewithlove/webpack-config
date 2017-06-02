@@ -1,7 +1,7 @@
 export default function () {
     return {
         test: /\.js$/,
-        loader: 'eslint-loader',
+        use: 'eslint-loader',
         exclude: /node_modules/,
         enforce: 'pre',
     };

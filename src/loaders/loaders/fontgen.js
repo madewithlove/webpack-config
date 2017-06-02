@@ -6,6 +6,6 @@ export default function (options) {
 
     return {
         test: /\.font\.(js|json$)/,
-        loader: ExtractText.extract({fallback: 'style-loader', use}),
+        use: ExtractText.extract({fallback: 'style-loader', use}),
     };
 }

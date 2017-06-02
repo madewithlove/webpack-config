@@ -11,7 +11,7 @@ describe('factory', () => {
                         loaders.css,
                         {
                             test: /\.foo/,
-                            loader: options.foo,
+                            use: options.foo,
                         }
                     ]
                 },

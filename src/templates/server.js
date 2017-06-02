@@ -31,7 +31,7 @@ export default function (config, options, loaders, plugins) {
                 loaders.vue,
                 {
                     test: /\.(css|scss)/,
-                    loader: 'null-loader',
+                    use: 'null-loader',
                 },
             ],
         },

@@ -1,6 +1,6 @@
 export default function () {
     return {
         test: /\.(ttf|eot)/,
-        loader: 'url-loader',
+        use: 'url-loader',
     };
 }
