@@ -68,7 +68,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "prepublish": "yarn build",
-    "postversion": "git push; git push --tags; npm publish",
+    "postpublish": "git push; git push --tags",
     "lint": "eslint src",
     "test:acceptance": "cd tests/acceptance && webpack --bail",
     "test:acceptance:production": "NODE_ENV=production yarn test:acceptance",
