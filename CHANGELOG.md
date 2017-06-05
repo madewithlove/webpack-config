@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.1.1
+### Fixed
+- Fixed missing dependency for Vue support
+
 ## 6.1.0
 ### Added
 - Add Vue support
