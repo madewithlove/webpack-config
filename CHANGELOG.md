@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.1.5
+### Fixed
+- Fixed format of webfonts loader for Webpack 2
+
 ## 6.1.1
 ### Fixed
 - Fixed missing dependency for Vue support
