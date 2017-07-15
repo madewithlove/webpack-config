@@ -1,22 +1,19 @@
-import autoprefixer from 'autoprefixer';
+import babelrc from './babelrc';
 
-export default loaders => {
+export default (options, loaders) => {
     return loaders.split('!').map(loader => {
-        const postcss = {
-            plugins() {
-                return [
-                    autoprefixer({
-                        browsers: [
-                            '>1%',
-                            'last 4 versions',
-                            'Firefox ESR',
-                            'not ie < 9',
-                        ],
-                    }),
-                ];
-            },
-        };
+        let loaderOptions = {};
 
-        return {loader, options: loader === 'postcss-loader' ? postcss : {}};
+        switch (loader) {
+            case 'postcss-loader':
+                loaderOptions = options.loaders.postcss;
+                break;
+
+            case 'babel-loader':
+                loaderOptions = babelrc(options);
+                break;
+        }
+
+        return {loader, options: loaderOptions};
     });
 };
