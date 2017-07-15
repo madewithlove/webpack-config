@@ -1,9 +1,9 @@
-import loader from '../../../../src/loaders/loaders/js';
+import babel from '../../../../src/loaders/options/babel';
 
 let config;
 
 it('can enable React mode', () => {
-    config = loader({
+    config = babel({
         react: true,
         sourcePath: 'foobar',
         loaders: {
@@ -11,11 +11,11 @@ it('can enable React mode', () => {
         },
     });
 
-    expect(config.use).toContain('react');
+    expect(config).toMatchSnapshot();
 });
 
 it('can enable HMR', () => {
-    config = loader({
+    config = babel({
         react: true,
         hot: true,
         sourcePath: 'foobar',
@@ -24,5 +24,5 @@ it('can enable HMR', () => {
         },
     });
 
-    expect(config.use).toContain('react-hmre');
+    expect(config).toMatchSnapshot();
 });

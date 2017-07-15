@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can merge loader options 1`] = `
+Object {
+  "css": "css-loader!postcss-loader",
+  "js": "foo-loader",
+  "options": Object {
+    "babel-loader": Object {
+      "plugins": Array [
+        "transform-decorators-legacy",
+      ],
+      "presets": Array [
+        "react-app",
+        "stage-0",
+      ],
+    },
+    "postcss-loader": Object {
+      "foo": "bar",
+      "plugins": [Function],
+    },
+  },
+}
+`;

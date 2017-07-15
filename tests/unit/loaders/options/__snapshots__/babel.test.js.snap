@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can enable HMR 1`] = `
+Object {
+  "plugins": Array [
+    "transform-decorators-legacy",
+  ],
+  "presets": Array [
+    "react-app",
+    "stage-0",
+    "react-hmre",
+  ],
+}
+`;
+
+exports[`can enable React mode 1`] = `
+Object {
+  "plugins": Array [
+    "transform-decorators-legacy",
+  ],
+  "presets": Array [
+    "react-app",
+    "stage-0",
+  ],
+}
+`;
