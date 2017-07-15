@@ -1,7 +1,7 @@
-import fs from 'fs';
 import dotenv from 'dotenv';
-import optionsFactory from './options';
+import fs from 'fs';
 import loadersFactory from './loaders';
+import optionsFactory from './options';
 import pluginsFactory from './plugins';
 import baseConfiguration from './templates/base';
 

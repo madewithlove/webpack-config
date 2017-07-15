@@ -1,5 +1,5 @@
-import webpack from 'webpack';
 import ExtractText from 'extract-text-webpack-plugin';
+import webpack from 'webpack';
 
 export default function (config, options, loaders, plugins) {
     //////////////////////////////////////////////////////////////////////

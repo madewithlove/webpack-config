@@ -1,5 +1,5 @@
 const server = {
-  foo: 'bar',
+    foo: 'bar',
 };
 
 const run = {

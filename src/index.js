@@ -1,7 +1,7 @@
-import packagesTemplate from './templates/packages';
-import applicationsTemplate from './templates/applications';
-import serverTemplate from './templates/server';
 import templateFactory from './factory';
+import applicationsTemplate from './templates/applications';
+import packagesTemplate from './templates/packages';
+import serverTemplate from './templates/server';
 
 // Export main template
 const applicationsConfigurator = options => templateFactory(applicationsTemplate, options);

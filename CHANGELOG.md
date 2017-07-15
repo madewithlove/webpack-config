@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.2.0
+### Added
+- Added possibility to configure some loaders options through the `loaders.options` object, per example `loaders.options.postcss` or `loaders.options.babel`
+
 ## 6.1.5
 ### Fixed
 - Fixed format of webfonts loader for Webpack 2
