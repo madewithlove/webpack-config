@@ -1,6 +1,6 @@
 import autoprefixer from 'autoprefixer';
 
-export default options => ({
+export default () => ({
     plugins() {
         return [
             autoprefixer({

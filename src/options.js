@@ -1,5 +1,5 @@
-import merge from 'merge';
 import path from 'path';
+import merge from 'merge';
 import loaderOptions from './loaders/options';
 
 export default function (options) {

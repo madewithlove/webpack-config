@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
 import fs from 'fs';
+import dotenv from 'dotenv';
 import loadersFactory from './loaders';
 import optionsFactory from './options';
 import pluginsFactory from './plugins';
