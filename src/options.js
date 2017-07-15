@@ -1,6 +1,6 @@
 import path from 'path';
 import merge from 'merge';
-import autoprefixer from 'autoprefixer';
+import loaderOptions from './loaders/options';
 
 export default function (options) {
     const env = process.env.BABEL_ENV || process.env.NODE_ENV || process.env.APP_ENV || 'development';
@@ -36,23 +36,16 @@ export default function (options) {
         loaders: {
             js: 'babel-loader',
             css: 'css-loader!postcss-loader',
-            postcss: {
-                plugins() {
-                    return [
-                        autoprefixer({
-                            browsers: [
-                                '>1%',
-                                'last 4 versions',
-                                'Firefox ESR',
-                                'not ie < 9',
-                            ],
-                        }),
-                    ];
-                },
-            },
+            options: {},
         },
 
     }, options);
+
+    // Add loader options
+    options.loaders.options = merge.recursive(
+        loaderOptions(options),
+        options.loaders.options,
+    );
 
     // Set NODE_ENV for babel-preset-react-app
     process.env.NODE_ENV = env
