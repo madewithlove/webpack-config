@@ -25,7 +25,6 @@ export default function (config, options, loaders, plugins) {
                 loaders.js,
                 loaders.html,
                 loaders.fontgen,
-                loaders.json,
                 loaders.fonts,
                 loaders.webfonts,
                 loaders.images,

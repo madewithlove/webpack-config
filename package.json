@@ -39,7 +39,6 @@
     "html-loader": "^0.4.5",
     "image-webpack-loader": "^3.3.1",
     "imagemin": "^5.3.1",
-    "json-loader": "^0.5.4",
     "merge": "^1.2.0",
     "node-sass": "^4.5.3",
     "object-path": "^0.11.2",

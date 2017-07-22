@@ -5,7 +5,6 @@ export default function (config, options, loaders, plugins) {
         module: {
             rules: [
                 loaders.js,
-                loaders.json,
             ],
         },
         output: {
