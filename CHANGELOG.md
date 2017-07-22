@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.2.2
+### Fixed
+- Silence warning about uneeded `json-loader`
+
 ## 6.2.1
 ### Fixed
 - Fixed Vue version mismatch
