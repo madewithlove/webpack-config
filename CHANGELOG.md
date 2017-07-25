@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.2.3
+### Fixed
+- Fixed CORS issues when using HMR
+
 ## 6.2.2
 ### Fixed
 - Silence warning about uneeded `json-loader`

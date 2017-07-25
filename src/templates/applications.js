@@ -78,6 +78,9 @@ export default function (config, options, loaders, plugins) {
             devServer: {
                 historyApiFallback: true,
                 hot: true,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                },
                 proxy: {
                     '*': options.domain,
                 },
