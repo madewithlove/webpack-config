@@ -1,6 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
-import {factory} from '../../src';
+import { factory } from '../../src';
 
 it('can create custom configuration from template', () => {
     const template = (config, options, loaders, plugins) => {
@@ -14,9 +14,7 @@ it('can create custom configuration from template', () => {
                     },
                 ],
             },
-            plugins: [
-                plugins.occurenceOrder,
-            ],
+            plugins: [plugins.occurenceOrder],
         });
     };
 
@@ -29,5 +27,7 @@ it('can create custom configuration from template', () => {
     expect(config.output.path).toEqual(path.resolve('foobar'));
     expect(config.module.rules[0].test).toEqual(/\.css$/);
     expect(config.module.rules[1].use).toEqual('bar');
-    expect(config.plugins[3]).toEqual(new webpack.optimize.OccurrenceOrderPlugin(true));
+    expect(config.plugins[3]).toEqual(
+        new webpack.optimize.OccurrenceOrderPlugin(true),
+    );
 });

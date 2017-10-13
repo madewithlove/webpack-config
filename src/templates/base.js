@@ -5,7 +5,7 @@ import objectPath from 'object-path';
 import webpack from 'webpack';
 import Config from 'webpack-config';
 
-export default function (options, loaders, plugins) {
+export default function(options, loaders, plugins) {
     let config = new Config().merge({
         devtool: 'eval',
         cache: true,
@@ -29,13 +29,10 @@ export default function (options, loaders, plugins) {
         },
     });
 
-    config.plugins.push(
-        plugins.define,
-        new CaseSensitivePathsPlugin(),
-    );
+    config.plugins.push(plugins.define, new CaseSensitivePathsPlugin());
 
     if (options.development) {
-        config.plugins.push(new webpack.LoaderOptionsPlugin({debug: true}));
+        config.plugins.push(new webpack.LoaderOptionsPlugin({ debug: true }));
     } else {
         config = config.merge({
             devtool: false,
@@ -43,7 +40,7 @@ export default function (options, loaders, plugins) {
                 pathinfo: false,
             },
             plugins: [
-                new webpack.LoaderOptionsPlugin({debug: false}),
+                new webpack.LoaderOptionsPlugin({ debug: false }),
                 new CleanPlugin(options.outputPath, process.cwd()),
                 plugins.uglify,
             ],

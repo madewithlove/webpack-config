@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 
-export default function () {
+export default function() {
     return new webpack.ProvidePlugin({
         $: 'jquery',
         _: 'lodash',

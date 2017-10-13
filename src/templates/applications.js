@@ -1,7 +1,7 @@
 import ExtractText from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
 
-export default function (config, options, loaders, plugins) {
+export default function(config, options, loaders, plugins) {
     //////////////////////////////////////////////////////////////////////
     ////////////////////////////// DEFAULTS //////////////////////////////
     //////////////////////////////////////////////////////////////////////
@@ -9,11 +9,20 @@ export default function (config, options, loaders, plugins) {
     config = config.merge({
         output: {
             publicPath: `/${options.outputPath.replace('public/', '')}`,
-            chunkFilename: `${options.filenames.replace('hash', 'chunkhash')}.js`,
+            chunkFilename: `${options.filenames.replace(
+                'hash',
+                'chunkhash',
+            )}.js`,
         },
         plugins: [
-            new ExtractText({filename: `${options.filenames}.css`, allChunks: true}),
-            new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en-gb)$/),
+            new ExtractText({
+                filename: `${options.filenames}.css`,
+                allChunks: true,
+            }),
+            new webpack.ContextReplacementPlugin(
+                /moment[\\/]locale$/,
+                /^\.\/(en-gb)$/,
+            ),
             plugins.assets,
             plugins.occurenceOrder,
         ],
@@ -51,9 +60,7 @@ export default function (config, options, loaders, plugins) {
                 extends: 'eslint-config-madewithlove',
             },
             module: {
-                rules: [
-                    loaders.eslint,
-                ],
+                rules: [loaders.eslint],
             },
         });
     }
@@ -96,7 +103,9 @@ export default function (config, options, loaders, plugins) {
             'webpack/hot/only-dev-server',
         );
     } else if (options.hot && !options.devServer) {
-        config.entry[options.name].push('webpack-hot-middleware/client?reload=true');
+        config.entry[options.name].push(
+            'webpack-hot-middleware/client?reload=true',
+        );
 
         config = config.merge({
             plugins: [

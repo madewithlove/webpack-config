@@ -10,7 +10,7 @@ import scss from './loaders/scss';
 import vue from './loaders/vue';
 import webfonts from './loaders/webfonts';
 
-export default function (options) {
+export default function(options) {
     return {
         baggage: baggage(options),
         css: css(options),
@@ -25,4 +25,3 @@ export default function (options) {
         webfonts: webfonts(options),
     };
 }
-

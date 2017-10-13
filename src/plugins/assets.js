@@ -1,6 +1,6 @@
 import AssetsPlugin from 'assets-webpack-plugin';
 
-export default function (options) {
+export default function(options) {
     return new AssetsPlugin({
         path: options.outputPath,
         filename: 'manifest.json',

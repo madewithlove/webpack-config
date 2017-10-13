@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 
-export default function (config, options, loaders, plugins) {
+export default function(config, options, loaders, plugins) {
     config = config.merge({
         target: 'node',
         resolve: {
@@ -11,7 +11,7 @@ export default function (config, options, loaders, plugins) {
         },
         externals: [
             {
-                'webpack': 'commonjs webpack',
+                webpack: 'commonjs webpack',
                 'webpack-hot-middleware': 'commonjs webpack-hot-middleware',
                 'webpack-dev-middleware': 'commonjs webpack-dev-middleware',
             },
@@ -36,7 +36,7 @@ export default function (config, options, loaders, plugins) {
         },
         plugins: [
             plugins.occurenceOrder,
-            new webpack.optimize.LimitChunkCountPlugin({maxChunks: 1}),
+            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
         ],
     });
 

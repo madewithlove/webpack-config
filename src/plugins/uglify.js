@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 
-export default function () {
+export default function() {
     return new webpack.optimize.UglifyJsPlugin({
         compress: {
             screw_ie8: true,

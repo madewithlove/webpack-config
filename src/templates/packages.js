@@ -1,11 +1,9 @@
 import path from 'path';
 
-export default function (config, options, loaders, plugins) {
+export default function(config, options, loaders, plugins) {
     return config.merge({
         module: {
-            rules: [
-                loaders.js,
-            ],
+            rules: [loaders.js],
         },
         output: {
             path: path.resolve(options.outputPath),
@@ -13,8 +11,6 @@ export default function (config, options, loaders, plugins) {
             library: options.libraryName,
             libraryTarget: 'umd',
         },
-        plugins: [
-            plugins.occurenceOrder,
-        ],
+        plugins: [plugins.occurenceOrder],
     });
 }

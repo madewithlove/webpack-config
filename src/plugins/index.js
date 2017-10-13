@@ -5,7 +5,7 @@ import provide from './provide';
 import stats from './stats';
 import uglify from './uglify';
 
-export default function (options) {
+export default function(options) {
     return {
         assets: assets(options),
         define: define(options),
