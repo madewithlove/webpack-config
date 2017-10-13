@@ -1,3 +1,4 @@
 /dist
 /node_modules
 /tests/acceptance/builds
+/tests/acceptance/node_modules/.cache/*

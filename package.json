@@ -66,8 +66,7 @@
         "build": "babel src -d dist",
         "prepublish": "yarn build",
         "postpublish": "git push; git push --tags",
-        "lint": "eslint src",
-        "lint:fix": "prettier {src,tests}/**/*.{js,scss} --write",
+        "lint": "prettier {src,tests}/**/*.{js,scss} --write",
         "test:acceptance": "cd tests/acceptance && webpack --bail",
         "test:acceptance:production":
             "NODE_ENV=production yarn test:acceptance",
@@ -82,11 +81,5 @@
         "tabWidth": 4,
         "singleQuote": true,
         "trailingComma": "all"
-    },
-    "eslintConfig": {
-        "extends": "madewithlove",
-        "rules": {
-            "filenames/match-exported": 0
-        }
     }
 }
