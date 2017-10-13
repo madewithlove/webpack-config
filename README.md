@@ -31,6 +31,7 @@ export default config({
     react: true,
     sourcePath: 'src',
     outputPath: 'builds',
+    enableRiskyOptimizations: true,
 });
 ```
 

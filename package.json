@@ -52,6 +52,7 @@
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
+        "hard-source-webpack-plugin": "^0.4.9",
         "jest": "^21.2.1",
         "prettier": "^1.7.4",
         "react": "^16.0.0",

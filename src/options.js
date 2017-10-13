@@ -2,44 +2,56 @@ import path from 'path';
 import merge from 'merge';
 import loaderOptions from './loaders/options';
 
-export default function (options) {
-    const env = process.env.BABEL_ENV || process.env.NODE_ENV || process.env.APP_ENV || 'development';
-    const development = typeof options.development === 'undefined'
-        ? env !== 'production'
-        : options.development;
+export default function(options) {
+    const env =
+        process.env.BABEL_ENV ||
+        process.env.NODE_ENV ||
+        process.env.APP_ENV ||
+        'development';
+    const development =
+        typeof options.development === 'undefined'
+            ? env !== 'production'
+            : options.development;
 
-    options = merge.recursive({
+    options = merge.recursive(
+        {
+            // Environment
+            name: 'main',
+            development,
+            env,
 
-        // Environment
-        name: 'main',
-        development,
-        env,
+            // Package options
+            enableRiskyOptimizations: false,
 
-        // HMR
-        domain: process.env.APP_URL,
-        hot: options.devServer === false ? development : process.argv.indexOf('--inline') !== -1,
+            // HMR
+            domain: process.env.APP_URL,
+            hot:
+                options.devServer === false
+                    ? development
+                    : process.argv.indexOf('--inline') !== -1,
 
-        // Filenames and paths
-        filenames: development ? '[name]' : '[name].[hash]',
-        devServer: 'http://localhost:8080',
-        sourcePath: 'resources/assets/js',
-        outputPath: 'public/builds/',
+            // Filenames and paths
+            filenames: development ? '[name]' : '[name].[hash]',
+            devServer: 'http://localhost:8080',
+            sourcePath: 'resources/assets/js',
+            outputPath: 'public/builds/',
 
-        // Frameworks
-        react: true,
+            // Frameworks
+            react: true,
 
-        // Other options
-        linting: false,
-        inlineLimit: 50000,
+            // Other options
+            linting: false,
+            inlineLimit: 50000,
 
-        // Loaders
-        loaders: {
-            js: 'babel-loader',
-            css: 'css-loader!postcss-loader',
-            options: {},
+            // Loaders
+            loaders: {
+                js: 'babel-loader',
+                css: 'css-loader!postcss-loader',
+                options: {},
+            },
         },
-
-    }, options);
+        options,
+    );
 
     // Add loader options
     options.loaders.options = merge.recursive(

@@ -2,6 +2,7 @@ import path from 'path';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import CleanPlugin from 'clean-webpack-plugin';
 import objectPath from 'object-path';
+import HardSourcePlugin from 'hard-source-webpack-plugin';
 import webpack from 'webpack';
 import Config from 'webpack-config';
 
@@ -45,6 +46,10 @@ export default function(options, loaders, plugins) {
                 plugins.uglify,
             ],
         });
+    }
+
+    if (options.enableRiskyOptimizations) {
+        config.plugins.push(new HardSourcePlugin());
     }
 
     return config;
