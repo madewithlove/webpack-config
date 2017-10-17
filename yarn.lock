@@ -2683,9 +2683,9 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.8.0.tgz#229ef0e354e0e61d837c7a80fdfba825e199815e"
+eslint@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.9.0.tgz#76879d274068261b191fe0f2f56c74c2f4208e8b"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
@@ -5996,9 +5996,9 @@ postcss-load-plugins@^2.3.0:
     cosmiconfig "^2.1.1"
     object-assign "^4.1.0"
 
-postcss-loader@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-2.0.7.tgz#4d2da1489cee0a14f72c0d9440c9ee7eded34345"
+postcss-loader@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-2.0.8.tgz#8c67ddb029407dfafe684a406cfc16bad2ce0814"
   dependencies:
     loader-utils "^1.1.0"
     postcss "^6.0.0"
@@ -7896,9 +7896,9 @@ vue-style-loader@^3.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.0.tgz#2e138f1643e131f24f6e19733690713b7543a937"
+vue-template-compiler@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.2.tgz#6f198ebc677b8f804315cd33b91e849315ae7177"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -7972,15 +7972,15 @@ webidl-conversions@^4.0.0:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
 
-webpack-config@^7.4.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/webpack-config/-/webpack-config-7.4.0.tgz#1b60282261e09202569b17f62801aeecc3f565ef"
+webpack-config@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/webpack-config/-/webpack-config-7.5.0.tgz#53c2c148fc7a3e377652fcea1e682015282047de"
   dependencies:
     babel-runtime "^6.25.0"
     constitute "^1.6.2"
     lodash "^4.17.4"
     recursive-iterator "^3.3.0"
-    yargs-parser "^7.0.0"
+    yargs-parser "^8.0.0"
 
 webpack-core@~0.6.0:
   version "0.6.9"
@@ -7999,9 +7999,9 @@ webpack-dev-middleware@^1.11.0:
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
 
-webpack-dev-server@^2.9.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-2.9.1.tgz#7ac9320b61b00eb65b2109f15c82747fc5b93585"
+webpack-dev-server@^2.9.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-2.9.2.tgz#0fbab915701d25a905a60e1e784df19727da800f"
   dependencies:
     ansi-html "0.0.7"
     array-includes "^3.0.3"
@@ -8039,9 +8039,9 @@ webpack-sources@^1.0.1:
     source-list-map "^2.0.0"
     source-map "~0.5.3"
 
-webpack@^3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.7.1.tgz#6046b5c415ff7df7a0dc54c5b6b86098e8b952da"
+webpack@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.8.0.tgz#36ed73aa62e86959fbc9b7b3a90f0f094e672708"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
@@ -8211,6 +8211,12 @@ yargs-parser@^5.0.0:
 yargs-parser@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-7.0.0.tgz#8d0ac42f16ea55debd332caf4c4038b3e3f5dfd9"
+  dependencies:
+    camelcase "^4.1.0"
+
+yargs-parser@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.0.0.tgz#21d476330e5a82279a4b881345bf066102e219c6"
   dependencies:
     camelcase "^4.1.0"
 

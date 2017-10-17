@@ -7,7 +7,10 @@
         "type": "git",
         "url": "git+ssh://git@github.com/madewithlove/webpack-config.git"
     },
-    "keywords": ["webpack", "config"],
+    "keywords": [
+        "webpack",
+        "config"
+    ],
     "author": {
         "name": "Madewithlove",
         "email": "heroes@madewithlove.be"
@@ -28,7 +31,7 @@
         "clean-webpack-plugin": "^0.1.17",
         "css-loader": "^0.28.7",
         "dotenv": "^4.0.0",
-        "eslint": "^4.8.0",
+        "eslint": "^4.9.0",
         "eslint-config-madewithlove": "^5.1.1",
         "eslint-loader": "^1.6.3",
         "extract-text-webpack-plugin": "^3.0.1",
@@ -39,15 +42,15 @@
         "merge": "^1.2.0",
         "node-sass": "^4.5.3",
         "object-path": "^0.11.2",
-        "postcss-loader": "^2.0.7",
+        "postcss-loader": "^2.0.8",
         "sass-loader": "^6.0.5",
         "stats-webpack-plugin": "^0.6.0",
         "style-loader": "^0.19.0",
         "url-loader": "^0.6.2",
         "vue-loader": "^13.3.0",
-        "vue-template-compiler": "^2.5.0",
+        "vue-template-compiler": "^2.5.2",
         "webfonts-loader": "^4.0.0",
-        "webpack-config": "^7.4.0",
+        "webpack-config": "^7.5.0",
         "webpack-node-externals": "^1.6.0"
     },
     "devDependencies": {
@@ -56,8 +59,8 @@
         "jest": "^21.2.1",
         "prettier": "^1.7.4",
         "react": "^16.0.0",
-        "webpack": "^3.7.1",
-        "webpack-dev-server": "^2.9.1"
+        "webpack": "^3.8.0",
+        "webpack-dev-server": "^2.9.2"
     },
     "peerDependencies": {
         "webpack": "^3.0"
@@ -68,14 +71,15 @@
         "postpublish": "git push; git push --tags",
         "lint": "prettier {src,tests}/**/*.{js,scss} --write",
         "test:acceptance": "cd tests/acceptance && webpack --bail",
-        "test:acceptance:production":
-            "NODE_ENV=production yarn test:acceptance",
+        "test:acceptance:production": "NODE_ENV=production yarn test:acceptance",
         "test:unit": "jest",
-        "test":
-            "yarn test:acceptance && yarn test:acceptance:production && yarn test:unit"
+        "test": "yarn test:acceptance && yarn test:acceptance:production && yarn test:unit"
     },
     "babel": {
-        "presets": ["env", "stage-0"]
+        "presets": [
+            "env",
+            "stage-0"
+        ]
     },
     "prettier": {
         "tabWidth": 4,
