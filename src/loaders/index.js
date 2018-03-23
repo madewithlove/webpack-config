@@ -1,4 +1,3 @@
-import baggage from './loaders/baggage';
 import css from './loaders/css';
 import eslint from './loaders/eslint';
 import fontgen from './loaders/fontgen';
@@ -12,7 +11,6 @@ import webfonts from './loaders/webfonts';
 
 export default function(options) {
     return {
-        baggage: baggage(options),
         css: css(options),
         eslint: eslint(options),
         fontgen: fontgen(options),
