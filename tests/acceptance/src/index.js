@@ -1,2 +1,2 @@
 import './SomeComponent';
-import './webfont.font.json';
+import './webfont.font';

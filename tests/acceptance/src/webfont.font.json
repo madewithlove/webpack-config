@@ -1,8 +1,0 @@
-{
-  "files": [
-    "icons/*"
-  ],
-  "fontName": "foobar",
-  "baseSelector": "icon",
-  "classPrefix": "icon-"
-}

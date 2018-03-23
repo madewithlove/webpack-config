@@ -13,12 +13,12 @@ import baseConfiguration from './templates/base';
  *
  * @returns {Object}
  */
-export default function (configuration, options = {}) {
+export default function(configuration, options = {}) {
     // Require dotenv variables
     const dotenvFile = `${process.cwd()}/.env`;
     try {
         if (fs.statSync(dotenvFile).isFile()) {
-            dotenv.load({path: dotenvFile});
+            dotenv.load({ path: dotenvFile });
         }
     } catch (errors) {
         // ...

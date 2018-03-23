@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import expandLoaders from '../expandLoaders';
 
-export default function (options) {
+export default function(options) {
     const use = expandLoaders(options, `${options.loaders.css}!sass-loader`);
 
     return {
