@@ -1,5 +1,5 @@
 import path from 'path';
-import applications from '../../../src';
+import applications from '../';
 
 let config;
 
@@ -34,17 +34,13 @@ it('can merge loaders and plugins', () => {
     config = applications({
         development: false,
         module: {
-            rules: [
-                {foo: 'bar'},
-            ],
+            rules: [{ foo: 'bar' }],
         },
-        plugins: [
-            {foo: 'bar'},
-        ],
+        plugins: [{ foo: 'bar' }],
     });
 
-    expect(config.module.rules[0]).toEqual({foo: 'bar'});
-    expect(config.plugins[0]).toEqual({foo: 'bar'});
+    expect(config.module.rules[0]).toEqual({ foo: 'bar' });
+    expect(config.plugins[0]).toEqual({ foo: 'bar' });
 });
 
 it('can enable linting', () => {
@@ -52,6 +48,8 @@ it('can enable linting', () => {
         linting: true,
     });
 
-    expect(config.module.rules[config.module.rules.length - 1].use).toEqual('eslint-loader');
+    expect(config.module.rules[config.module.rules.length - 1].use).toEqual(
+        'eslint-loader',
+    );
     expect(config.eslint.extends).toEqual('eslint-config-madewithlove');
 });

@@ -1,4 +1,4 @@
-import options from '../../src/options';
+import options from './options';
 
 it('can merge loader options', () => {
     const merged = options({

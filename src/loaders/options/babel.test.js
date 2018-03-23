@@ -1,4 +1,4 @@
-import babel from '../../../../src/loaders/options/babel';
+import babel from './babel';
 
 let config;
 

@@ -1,6 +1,5 @@
 import path from 'path';
-import webpack from 'webpack';
-import { factory } from '../../src';
+import { factory } from '.';
 
 it('can create custom configuration from template', () => {
     const template = (config, options, loaders, plugins) => {

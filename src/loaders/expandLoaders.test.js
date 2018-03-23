@@ -1,4 +1,4 @@
-import expandLoaders from '../../../src/loaders/expandLoaders';
+import expandLoaders from './expandLoaders';
 
 it('can expand query with options', () => {
     const options = {
@@ -12,11 +12,14 @@ it('can expand query with options', () => {
                 },
                 'qux-loader': {
                     jinx: true,
-                }
+                },
             },
         },
     };
-    const expanded = expandLoaders(options, 'foo-loader?bar!bar-loader?baz=qux');
+    const expanded = expandLoaders(
+        options,
+        'foo-loader?bar!bar-loader?baz=qux',
+    );
 
     expect(expanded).toMatchSnapshot();
 });

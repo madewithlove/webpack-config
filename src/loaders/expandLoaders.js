@@ -5,7 +5,7 @@ export default (options, loaders) => {
         let [loader, parsed] = rawLoader.split('?');
         const defaults = options.loaders.options[loader] || {};
         parsed = parseQuery(`?${parsed}`) || {};
-        const loaderOptions = {...defaults, ...parsed};
+        const loaderOptions = { ...defaults, ...parsed };
 
         return { loader, options: loaderOptions };
     });
