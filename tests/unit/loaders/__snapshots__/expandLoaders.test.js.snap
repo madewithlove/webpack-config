@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can expand query with options 1`] = `
+Array [
+  Object {
+    "loader": "foo-loader",
+    "options": Object {
+      "bar": true,
+      "baz": 50,
+    },
+  },
+  Object {
+    "loader": "bar-loader",
+    "options": Object {
+      "baz": "qux",
+      "qul": 25,
+    },
+  },
+]
+`;

@@ -2,15 +2,12 @@ import path from 'path';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import CleanPlugin from 'clean-webpack-plugin';
 import objectPath from 'object-path';
-import HardSourcePlugin from 'hard-source-webpack-plugin';
 import webpack from 'webpack';
 import Config from 'webpack-config';
 
 export default function(options, loaders, plugins) {
     let config = new Config().merge({
-        devtool: 'eval',
-        cache: true,
-
+        mode: options.development ? 'development' : 'production',
         entry: {
             [options.name]: [`./${options.entry}`],
         },
@@ -32,9 +29,7 @@ export default function(options, loaders, plugins) {
 
     config.plugins.push(plugins.define, new CaseSensitivePathsPlugin());
 
-    if (options.development) {
-        config.plugins.push(new webpack.LoaderOptionsPlugin({ debug: true }));
-    } else {
+    if (!options.development) {
         config = config.merge({
             devtool: false,
             output: {
@@ -43,13 +38,8 @@ export default function(options, loaders, plugins) {
             plugins: [
                 new webpack.LoaderOptionsPlugin({ debug: false }),
                 new CleanPlugin(options.outputPath, process.cwd()),
-                plugins.uglify,
             ],
         });
-    }
-
-    if (options.enableRiskyOptimizations) {
-        config.plugins.push(new HardSourcePlugin());
     }
 
     return config;

@@ -23,11 +23,7 @@ it('can create custom configuration from template', () => {
         outputPath: 'foobar',
     });
 
-    expect(config.devtool).toEqual('eval');
     expect(config.output.path).toEqual(path.resolve('foobar'));
     expect(config.module.rules[0].test).toEqual(/\.css$/);
     expect(config.module.rules[1].use).toEqual('bar');
-    expect(config.plugins[3]).toEqual(
-        new webpack.optimize.OccurrenceOrderPlugin(true),
-    );
 });

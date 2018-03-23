@@ -1,4 +1,4 @@
-import ExtractText from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import expandLoaders from '../expandLoaders';
 
 export default function (options) {
@@ -6,6 +6,6 @@ export default function (options) {
 
     return {
         test: /\.css$/,
-        use: ExtractText.extract({fallback: 'style-loader', use}),
+        use: [MiniCssExtractPlugin.loader, ...use],
     };
 }

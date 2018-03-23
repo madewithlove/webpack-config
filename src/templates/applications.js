@@ -1,4 +1,4 @@
-import ExtractText from 'extract-text-webpack-plugin';
+import ExtractText from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 
 export default function(config, options, loaders, plugins) {
@@ -118,27 +118,6 @@ export default function(config, options, loaders, plugins) {
     //////////////////////////////////////////////////////////////////////
     ///////////////////////////// PRODUCTION /////////////////////////////
     //////////////////////////////////////////////////////////////////////
-
-    if (!options.development) {
-        config = config.merge({
-            node: {
-                fs: 'empty',
-                net: 'empty',
-                tls: 'empty',
-            },
-            plugins: [
-                new webpack.optimize.AggressiveMergingPlugin(),
-                new webpack.optimize.CommonsChunkPlugin({
-                    name: options.name,
-                    children: true,
-                }),
-                // https://github.com/webpack/extract-text-webpack-plugin/issues/115
-                new webpack.optimize.MinChunkSizePlugin({
-                    minChunkSize: options.inlineLimit,
-                }),
-            ],
-        });
-    }
 
     return config;
 }
