@@ -40,7 +40,6 @@ export default function(options) {
             react: true,
 
             // Other options
-            linting: false,
             inlineLimit: 50000,
 
             // Loaders

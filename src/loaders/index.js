@@ -1,5 +1,4 @@
 import css from './loaders/css';
-import eslint from './loaders/eslint';
 import fontgen from './loaders/fontgen';
 import fonts from './loaders/fonts';
 import html from './loaders/html';
@@ -12,7 +11,6 @@ import webfonts from './loaders/webfonts';
 export default function(options) {
     return {
         css: css(options),
-        eslint: eslint(options),
         fontgen: fontgen(options),
         fonts: fonts(options),
         html: html(options),

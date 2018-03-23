@@ -42,14 +42,3 @@ it('can merge loaders and plugins', () => {
     expect(config.module.rules[0]).toEqual({ foo: 'bar' });
     expect(config.plugins[0]).toEqual({ foo: 'bar' });
 });
-
-it('can enable linting', () => {
-    config = applications({
-        linting: true,
-    });
-
-    expect(config.module.rules[config.module.rules.length - 1].use).toEqual(
-        'eslint-loader',
-    );
-    expect(config.eslint.extends).toEqual('eslint-config-madewithlove');
-});
