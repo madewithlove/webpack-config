@@ -8,7 +8,6 @@ Object {
   "presets": Array [
     "react-app",
     "stage-0",
-    "react-hmre",
   ],
 }
 `;
