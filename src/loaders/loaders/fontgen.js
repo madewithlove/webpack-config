@@ -2,10 +2,13 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import expandLoaders from '../expandLoaders';
 
 export default function(options) {
-    const use = expandLoaders(
-        options,
-        `${options.loaders.css}!webfonts-loader?embed`,
-    );
+    let use = expandLoaders(options, `${options.loaders.css}`);
+    use.push({
+        loader: 'webfonts-loader',
+        options: {
+            embed: true,
+        }
+    });
 
     return {
         test: /\.font\.(js|json)$/,
