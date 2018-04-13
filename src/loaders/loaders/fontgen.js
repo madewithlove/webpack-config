@@ -7,7 +7,7 @@ export default function(options) {
         loader: 'webfonts-loader',
         options: {
             embed: true,
-        }
+        },
     });
 
     return {
