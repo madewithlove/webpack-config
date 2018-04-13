@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.0.0
+### Changed
+- Updated to Webpack 4
+
 ## 6.2.3
 ### Fixed
 - Fixed CORS issues when using HMR
